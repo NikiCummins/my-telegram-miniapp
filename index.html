@@ -3,73 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truck PORTAL</title>
+    <title>VDF Editor Mini App</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--tg-theme-bg-color, #ffffff);
+            color: var(--tg-theme-text-color, #000000);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 10px;
+        }
+
+        .header {
+            background: var(--tg-theme-header-bg-color, #4a76a8);
+            color: var(--tg-theme-header-text-color, #ffffff);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .panel {
+            background: var(--tg-theme-secondary-bg-color, #f0f0f0);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: var(--tg-theme-button-color, #4a76a8);
+            color: var(--tg-theme-button-text-color, #ffffff);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+        }
+
+        .btn-success {
+            background: #27ae60;
+        }
+
+        .sections-panel {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: start;
+        }
+
+        .sections-list {
+            background: var(--tg-theme-bg-color, #ffffff);
+            border-radius: 8px;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .section-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: var(--tg-theme-secondary-bg-color, #f8f9fa);
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .section-item.active {
+            background: var(--tg-theme-button-color, #4a76a8);
+            color: var(--tg-theme-button-text-color, #ffffff);
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--tg-theme-bg-color, #ffffff);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--tg-theme-hint-color, #999999);
+        }
+
+        .data-table th {
+            background: var(--tg-theme-secondary-bg-color, #f8f9fa);
+            font-weight: 600;
+        }
+
+        .status-indicator {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--tg-theme-bg-color, #ffffff);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--tg-theme-hint-color, #cccccc);
+            border-radius: 6px;
+            background: var(--tg-theme-bg-color, #ffffff);
+            color: var(--tg-theme-text-color, #000000);
+        }
+
+        .file-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .file-item {
+            background: var(--tg-theme-secondary-bg-color, #f8f9fa);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .file-item:hover {
+            background: var(--tg-theme-button-color, #4a76a8);
+            color: var(--tg-theme-button-text-color, #ffffff);
+        }
+
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--tg-theme-secondary-bg-color, #f8f9fa);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+
+        .modified-indicator {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <i class="fas fa-truck-moving"></i>
-                <h1>Truck PORTAL</h1>
-                <span class="badge">PRO</span>
-            </div>
-            <p class="subtitle">Прошивки и программы для ECM</p>
-        </header>
-
-        <!-- Search -->
-        <div class="search-section">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Поиск по моделям...">
-            </div>
+        <div class="header">
+            <h1>VDF Editor Mini App</h1>
         </div>
 
-        <!-- Categories -->
-        <div class="categories">
-            <div class="category active" data-category="all">
-                <i class="fas fa-layer-group"></i>
-                <span>Все файлы</span>
-            </div>
-            <div class="category" data-category="firmware">
-                <i class="fas fa-microchip"></i>
-                <span>Прошивки</span>
-            </div>
-            <div class="category" data-category="software">
-                <i class="fas fa-laptop-code"></i>
-                <span>Программы</span>
-            </div>
-            <div class="category" data-category="manuals">
-                <i class="fas fa-book"></i>
-                <span>Мануалы</span>
-            </div>
-        </div>
-
-        <!-- Files List -->
-        <div class="files-section">
-            <h3 class="section-title">Доступные файлы <span id="fileCount">(12)</span></h3>
+        <!-- File Management Panel -->
+        <div class="panel" id="fileManagementPanel">
+            <h3>File Management</h3>
+            <button class="btn btn-success" onclick="showNewFileModal()">New File</button>
+            <button class="btn" onclick="loadFileList()">Load Files</button>
             
-            <div class="files-list" id="filesList">
-                <!-- Files will be loaded here by JavaScript -->
+            <div class="file-list" id="fileList"></div>
+        </div>
+
+        <!-- Sections Panel -->
+        <div class="panel sections-panel" id="sectionsPanel" style="display: none;">
+            <div>
+                <h3>Sections</h3>
+                <div class="sections-list" id="sectionsList"></div>
+            </div>
+            <div>
+                <button class="btn btn-success" onclick="showNewSectionModal()">Add</button>
+                <button class="btn btn-danger" onclick="deleteSection()">Delete</button>
             </div>
         </div>
 
-        <!-- Download Info -->
-        <div class="download-info" id="downloadInfo">
-            <div class="info-content">
-                <i class="fas fa-download"></i>
-                <span>Файлы готовы к скачиванию</span>
+        <!-- Data Table Panel -->
+        <div class="panel" id="tablePanel" style="display: none;">
+            <h3 id="currentSectionLabel">No section selected</h3>
+            <div style="margin-bottom: 10px;">
+                <button class="btn btn-success" onclick="addParameter()">Add Parameter</button>
+                <button class="btn btn-danger" onclick="deleteParameter()">Delete Parameter</button>
             </div>
+            <div class="table-container">
+                <table class="data-table" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                            <th width="60">Status</th>
+                            <th width="100">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span id="fileInfo">No file loaded</span>
+            <span id="modifiedIndicator" class="modified-indicator" style="display: none;">MODIFIED</span>
         </div>
     </div>
 
-    <!-- Loading -->
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <p>Загрузка...</p>
+    <!-- Modals -->
+    <div id="newFileModal" class="modal">
+        <div class="modal-content">
+            <h3>New VDF File</h3>
+            <div class="form-group">
+                <label for="filename">Filename:</label>
+                <input type="text" id="filename" placeholder="example.vdf">
+            </div>
+            <div class="form-group">
+                <label for="initialContent">Initial Content:</label>
+                <textarea id="initialContent" rows="10" placeholder="[Section1]
+param1=value1
+param2=value2
+
+[Section2]
+param3=value3"></textarea>
+            </div>
+            <button class="btn btn-success" onclick="createNewFile()">Create</button>
+            <button class="btn" onclick="hideModal('newFileModal')">Cancel</button>
+        </div>
+    </div>
+
+    <div id="newSectionModal" class="modal">
+        <div class="modal-content">
+            <h3>New Section</h3>
+            <div class="form-group">
+                <label for="sectionName">Section Name:</label>
+                <input type="text" id="sectionName" placeholder="SectionName">
+            </div>
+            <button class="btn btn-success" onclick="addNewSection()">Add</button>
+            <button class="btn" onclick="hideModal('newSectionModal')">Cancel</button>
+        </div>
+    </div>
+
+    <div id="editParamModal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Parameter</h3>
+            <div class="form-group">
+                <label for="editKey">Parameter:</label>
+                <input type="text" id="editKey">
+            </div>
+            <div class="form-group">
+                <label for="editValue">Value:</label>
+                <input type="text" id="editValue">
+            </div>
+            <button class="btn btn-success" onclick="saveParameter()">Save</button>
+            <button class="btn" onclick="hideModal('editParamModal')">Cancel</button>
+        </div>
     </div>
 
     <script src="app.js"></script>
