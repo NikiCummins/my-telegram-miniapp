@@ -146,9 +146,51 @@ function filterFiles() {
     loadFiles(filtered);
 }
 
-// Скачивание файла
-// Скачивание файла
-function downloadFile(fileId)
+// Скачивание файла - ИСПРАВЛЕННАЯ ФУНКЦИЯ
+function downloadFile(fileId) {
+    const file = filesData.find(f => f.id === fileId);
+    
+    if (!file) {
+        console.error('Файл не найден:', fileId);
+        return;
+    }
+    
+    console.log('🔄 Начало скачивания файла:', file.name);
+    
+    // Показываем загрузку
+    showLoading();
+    
+    // Имитируем скачивание
+    setTimeout(() => {
+        hideLoading();
+        
+        // Показываем уведомление
+        showDownloadInfo(`Файл "${file.name}" отправляется в чат...`);
+        
+        // Отправляем данные в бота для отправки файла
+        const downloadData = {
+            action: "send_file_to_user",
+            file_id: fileId,
+            file_name: file.name,
+            file_type: file.category,
+            file_size: file.size,
+            file_version: file.version,
+            user_id: tg.initDataUnsafe.user?.id,
+            timestamp: new Date().toISOString()
+        };
+        
+        console.log('📤 Отправляю данные в бота:', downloadData);
+        
+        try {
+            tg.sendData(JSON.stringify(downloadData));
+            console.log('✅ Данные отправлены через sendData');
+        } catch (error) {
+            console.error('❌ Ошибка sendData:', error);
+            tg.showAlert("Ошибка отправки данных. Попробуйте еще раз.");
+        }
+        
+    }, 1500);
+}
 
 // Связь с поддержкой
 function contactSupport() {
@@ -167,23 +209,32 @@ function contactSupport() {
 
 // Вспомогательные функции
 function showLoading() {
-    document.getElementById('loading').classList.add('show');
+    const loading = document.getElementById('loading');
+    if (loading) {
+        loading.classList.add('show');
+    }
 }
 
 function hideLoading() {
-    document.getElementById('loading').classList.remove('show');
+    const loading = document.getElementById('loading');
+    if (loading) {
+        loading.classList.remove('show');
+    }
 }
 
 function showDownloadInfo(message) {
     const info = document.getElementById('downloadInfo');
-    const infoContent = info.querySelector('span');
-    
-    infoContent.textContent = message;
-    info.classList.add('show');
-    
-    setTimeout(() => {
-        info.classList.remove('show');
-    }, 3000);
+    if (info) {
+        const infoContent = info.querySelector('span');
+        if (infoContent) {
+            infoContent.textContent = message;
+        }
+        info.classList.add('show');
+        
+        setTimeout(() => {
+            info.classList.remove('show');
+        }, 3000);
+    }
 }
 
 // Инициализация при загрузке
