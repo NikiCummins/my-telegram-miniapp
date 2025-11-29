@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой Mini App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>My Awesome Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js?1"></script> <!-- Подключаем SDK Telegram -->
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: var(--tg-theme-bg-color, #ffffff);
+            color: var(--tg-theme-text-color, #222222);
+        }
+        button {
+            background-color: var(--tg-theme-button-color, #50a8eb);
+            color: var(--tg-theme-button-text-color, #ffffff);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎉 Мое первое приложение!</h1>
-        <p>Привет, <span id="user-name">друг</span>!</p>
-        <button onclick="showAlert()">Нажми меня</button>
-    </div>
+    <h1>Привет, мир!</h1>
+    <p>Это мое первое Mini App.</p>
+    <button onclick="showUserInfo()">Кто я?</button>
+    <button onclick="sendData()">Отправить данные</button>
+    
+    <div id="user-info"></div>
+
     <script src="app.js"></script>
 </body>
 </html>
