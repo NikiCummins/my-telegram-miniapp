@@ -1,153 +1,216 @@
-// Основной объект Telegram Web App
 const tg = window.Telegram.WebApp;
 
 // Инициализация приложения
 function initApp() {
-    console.log('Mini App инициализирован');
+    console.log('Truck PORTAL инициализирован');
     
     // Расширяем на весь экран
     tg.expand();
     
     // Настраиваем главную кнопку
-    tg.MainButton.setText("Отправить данные");
-    tg.MainButton.onClick(sendDataToBot);
+    tg.MainButton.setText("Связаться с поддержкой");
+    tg.MainButton.onClick(contactSupport);
     
-    // Показываем данные пользователя
-    displayUserInfo();
+    // Загружаем файлы
+    loadFiles();
     
-    // Настраиваем обработчик формы
-    setupFormHandler();
+    // Настраиваем поиск и фильтры
+    setupSearchAndFilters();
 }
 
-// Показываем информацию о пользователе
-function displayUserInfo() {
-    const user = tg.initDataUnsafe.user;
-    const userInfoDiv = document.getElementById('user-info');
-    
-    if (user) {
-        userInfoDiv.innerHTML = `
-            <h3>👋 Привет, ${user.first_name}!</h3>
-            <div class="user-info">
-                <p><strong>ID:</strong> ${user.id}</p>
-                ${user.username ? `<p><strong>Username:</strong> @${user.username}</p>` : ''}
-                ${user.language_code ? `<p><strong>Язык:</strong> ${user.language_code}</p>` : ''}
-            </div>
-        `;
-    } else {
-        userInfoDiv.innerHTML = '<p>Данные пользователя недоступны</p>';
+// Данные файлов (в реальном приложении будут с сервера)
+const filesData = [
+    {
+        id: 1,
+        name: "ECM Firmware DDC v5.2",
+        description: "Прошивка для двигателей Detroit Diesel Series 60",
+        category: "firmware",
+        size: "45.2 MB",
+        version: "5.2.1",
+        icon: "microchip",
+        downloads: 1247
+    },
+    {
+        id: 2,
+        name: "Diagnostic Tool 2024",
+        description: "Программа для диагностики грузовых автомобилей",
+        category: "software",
+        size: "128.5 MB",
+        version: "3.4.0",
+        icon: "laptop-code",
+        downloads: 892
+    },
+    {
+        id: 3,
+        name: "Cummins INSITE Pro",
+        description: "Профессиональное ПО для двигателей Cummins",
+        category: "software",
+        size: "256.7 MB",
+        version: "8.7.2",
+        icon: "laptop-code",
+        downloads: 1563
+    },
+    {
+        id: 4,
+        name: "Service Manual Volvo",
+        description: "Руководство по ремонту Volvo FH/FM",
+        category: "manuals",
+        size: "15.8 MB",
+        version: "2024",
+        icon: "book",
+        downloads: 734
+    },
+    {
+        id: 5,
+        name: "ECM Update CAT C15",
+        description: "Обновление прошивки для Caterpillar C15",
+        category: "firmware",
+        size: "32.1 MB",
+        version: "2.1.4",
+        icon: "microchip",
+        downloads: 621
+    },
+    {
+        id: 6,
+        name: "Mercedes Diagnostic",
+        description: "Диагностическая система Mercedes-Benz Trucks",
+        category: "software",
+        size: "189.3 MB",
+        version: "4.2.1",
+        icon: "laptop-code",
+        downloads: 543
     }
+];
+
+// Загрузка файлов
+function loadFiles(filteredFiles = filesData) {
+    const filesList = document.getElementById('filesList');
+    const fileCount = document.getElementById('fileCount');
+    
+    fileCount.textContent = `(${filteredFiles.length})`;
+    
+    filesList.innerHTML = filteredFiles.map(file => `
+        <div class="file-card" data-category="${file.category}">
+            <div class="file-header">
+                <div class="file-icon ${file.category}">
+                    <i class="fas fa-${file.icon}"></i>
+                </div>
+                <div class="file-info">
+                    <div class="file-name">${file.name}</div>
+                    <div class="file-description">${file.description}</div>
+                </div>
+            </div>
+            <div class="file-meta">
+                <div class="file-size">${file.size} • v${file.version}</div>
+                <button class="download-btn" onclick="downloadFile(${file.id})">
+                    <i class="fas fa-download"></i> Скачать
+                </button>
+            </div>
+        </div>
+    `).join('');
 }
 
-// Настройка обработчика формы
-function setupFormHandler() {
-    const form = document.getElementById('test-form');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+// Настройка поиска и фильтров
+function setupSearchAndFilters() {
+    const searchInput = document.getElementById('searchInput');
+    const categories = document.querySelectorAll('.category');
+    
+    // Поиск
+    searchInput.addEventListener('input', function(e) {
+        filterFiles();
+    });
+    
+    // Категории
+    categories.forEach(category => {
+        category.addEventListener('click', function() {
+            categories.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+            filterFiles();
+        });
+    });
+}
+
+// Фильтрация файлов
+function filterFiles() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const activeCategory = document.querySelector('.category.active').dataset.category;
+    
+    let filtered = filesData.filter(file => {
+        const matchesSearch = file.name.toLowerCase().includes(searchTerm) || 
+                            file.description.toLowerCase().includes(searchTerm);
+        const matchesCategory = activeCategory === 'all' || file.category === activeCategory;
         
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            color: document.getElementById('color').value,
+        return matchesSearch && matchesCategory;
+    });
+    
+    loadFiles(filtered);
+}
+
+// Скачивание файла
+function downloadFile(fileId) {
+    const file = filesData.find(f => f.id === fileId);
+    
+    if (!file) return;
+    
+    // Показываем загрузку
+    showLoading();
+    
+    // Имитируем скачивание
+    setTimeout(() => {
+        hideLoading();
+        
+        // Показываем уведомление
+        showDownloadInfo(`Файл "${file.name}" добавлен в загрузки`);
+        
+        // Отправляем данные в бота
+        const downloadData = {
+            action: "file_download",
+            file_id: fileId,
+            file_name: file.name,
+            user_id: tg.initDataUnsafe.user?.id,
             timestamp: new Date().toISOString()
         };
         
-        submitForm(formData);
-    });
-}
-
-// Отправка формы на сервер
-async function submitForm(formData) {
-    try {
-        const response = await fetch('https://your-server.com/webapp-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                action: 'submit_form',
-                form_data: formData,
-                user_id: tg.initDataUnsafe.user?.id
-            })
-        });
+        tg.sendData(JSON.stringify(downloadData));
         
-        const result = await response.json();
-        showResult(result.message, 'success');
-        
-    } catch (error) {
-        console.error('Ошибка:', error);
-        showResult('Ошибка при отправке формы', 'error');
-    }
+    }, 2000);
 }
 
-// Функции для кнопок
-function showAlert() {
-    tg.showPopup({
-        title: 'Уведомление',
-        message: 'Это тестовое уведомление из Mini App!',
-        buttons: [{ type: 'ok' }]
-    });
-}
-
-function getUserData() {
+// Связь с поддержкой
+function contactSupport() {
     const user = tg.initDataUnsafe.user;
-    if (user) {
-        const message = `
-            Ваши данные:
-            👤 Имя: ${user.first_name}
-            📧 Username: @${user.username || 'не указан'}
-            🆔 ID: ${user.id}
-        `;
-        tg.showAlert(message);
-    } else {
-        tg.showAlert("Данные пользователя не доступны");
-    }
-}
-
-function sendToBot() {
-    const data = {
-        action: 'button_click',
-        button: 'send_to_bot',
-        timestamp: new Date().toISOString(),
-        user: tg.initDataUnsafe.user?.id
+    const supportData = {
+        action: "contact_support",
+        user_id: user?.id,
+        user_name: user?.first_name,
+        username: user?.username,
+        timestamp: new Date().toISOString()
     };
     
-    tg.sendData(JSON.stringify(data));
-    tg.showAlert('Данные отправлены боту!');
+    tg.sendData(JSON.stringify(supportData));
+    tg.showAlert("Запрос отправлен в поддержку! С вами свяжутся в ближайшее время.");
 }
 
-function closeApp() {
-    tg.close();
+// Вспомогательные функции
+function showLoading() {
+    document.getElementById('loading').classList.add('show');
 }
 
-// Отправка данных через главную кнопку
-function sendDataToBot() {
-    const formData = {
-        name: document.getElementById('name').value || 'Не указано',
-        email: document.getElementById('email').value || 'Не указано',
-        color: document.getElementById('color').value || 'Не указано'
-    };
+function hideLoading() {
+    document.getElementById('loading').classList.remove('show');
+}
+
+function showDownloadInfo(message) {
+    const info = document.getElementById('downloadInfo');
+    const infoContent = info.querySelector('span');
     
-    const data = {
-        action: 'main_button_click',
-        form_data: formData,
-        timestamp: new Date().toISOString(),
-        user: tg.initDataUnsafe.user
-    };
-    
-    tg.sendData(JSON.stringify(data));
-    tg.close();
-}
-
-// Показать результат операции
-function showResult(message, type) {
-    const resultDiv = document.getElementById('result');
-    resultDiv.textContent = message;
-    resultDiv.className = `result ${type}`;
+    infoContent.textContent = message;
+    info.classList.add('show');
     
     setTimeout(() => {
-        resultDiv.style.display = 'none';
-    }, 5000);
+        info.classList.remove('show');
+    }, 3000);
 }
 
-// Инициализация при загрузке страницы
+// Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', initApp);
