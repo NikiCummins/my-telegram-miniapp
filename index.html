@@ -3,16 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Mini App</title>
+    <title>Мой Mini App</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Тест Mini App</h1>
-    <p>Если видишь это в Telegram - всё работает!</p>
-    <script>
-        const tg = window.Telegram.WebApp;
-        tg.expand();
-        tg.showAlert("Mini App запущен!");
-    </script>
+    <div class="container">
+        <header>
+            <h1>🎯 Мое приложение</h1>
+            <p>Telegram Mini App + Python бот</p>
+        </header>
+
+        <div class="user-card" id="user-info">
+            <div class="loader">Загрузка...</div>
+        </div>
+
+        <div class="section">
+            <h3>📝 Тестовая форма</h3>
+            <form id="test-form">
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <select id="color">
+                    <option value="">Выберите цвет</option>
+                    <option value="red">Красный</option>
+                    <option value="blue">Синий</option>
+                    <option value="green">Зеленый</option>
+                </select>
+                <button type="submit">Отправить форму</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h3>⚡ Действия</h3>
+            <button onclick="showAlert()">Показать alert</button>
+            <button onclick="getUserData()">Мои данные</button>
+            <button onclick="sendToBot()">Отправить боту</button>
+            <button onclick="closeApp()">Закрыть</button>
+        </div>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
