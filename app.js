@@ -147,6 +147,7 @@ function filterFiles() {
 }
 
 // Скачивание файла
+// Скачивание файла
 function downloadFile(fileId) {
     const file = filesData.find(f => f.id === fileId);
     
@@ -160,20 +161,23 @@ function downloadFile(fileId) {
         hideLoading();
         
         // Показываем уведомление
-        showDownloadInfo(`Файл "${file.name}" добавлен в загрузки`);
+        showDownloadInfo(`Файл "${file.name}" отправляется в чат...`);
         
-        // Отправляем данные в бота
+        // Отправляем данные в бота для отправки файла
         const downloadData = {
-            action: "file_download",
+            action: "send_file_to_user",
             file_id: fileId,
             file_name: file.name,
+            file_type: file.category,
+            file_size: file.size,
+            file_version: file.version,
             user_id: tg.initDataUnsafe.user?.id,
             timestamp: new Date().toISOString()
         };
         
         tg.sendData(JSON.stringify(downloadData));
         
-    }, 2000);
+    }, 1500);
 }
 
 // Связь с поддержкой
