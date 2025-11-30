@@ -1,18 +1,18 @@
 const tg = window.Telegram.WebApp;
 let isRunning = false;
 
-// Инициализация приложения
 function initApp() {
-    console.log('Simple Control App инициализирован');
-    tg.expand(); // Расширяем на весь экран
+    console.log('✅ Mini App инициализирован');
+    console.log('👤 User:', tg.initDataUnsafe.user);
+    tg.expand();
     updateUI();
 }
 
-// Переключение состояния Start/Stop
 function toggleControl() {
+    console.log('🎯 Кнопка нажата! Текущее состояние:', isRunning);
+    
     isRunning = !isRunning;
     
-    // Подготавливаем данные для отправки
     const controlData = {
         action: "control_toggle",
         state: isRunning ? "start" : "stop",
@@ -21,35 +21,18 @@ function toggleControl() {
         timestamp: new Date().toISOString()
     };
     
-    console.log("📤 Отправка данных в бота:", controlData);
+    console.log("📤 Отправляю данные:", controlData);
     
-    // Отправляем данные в бота
-    tg.sendData(JSON.stringify(controlData));
-    
-    // Обновляем интерфейс
-    updateUI();
-    
-    // Показываем уведомление
-    tg.showAlert(isRunning ? "✅ Система запущена!" : "🛑 Система остановлена!");
-}
-
-// Обновление интерфейса
-function updateUI() {
-    const statusElement = document.getElementById('status');
-    const buttonElement = document.getElementById('controlBtn');
-    
-    if (isRunning) {
-        statusElement.textContent = "Статус: Запущена 🟢";
-        statusElement.style.color = "#28a745";
-        buttonElement.textContent = "🛑 Stop";
-        buttonElement.classList.add('stop');
-    } else {
-        statusElement.textContent = "Статус: Остановлена 🔴";
-        statusElement.style.color = "#dc3545";
-        buttonElement.textContent = "🚀 Start";
-        buttonElement.classList.remove('stop');
+    // Пробуем отправить данные
+    try {
+        tg.sendData(JSON.stringify(controlData));
+        console.log("✅ Данные отправлены через sendData");
+    } catch (error) {
+        console.error("❌ Ошибка sendData:", error);
     }
+    
+    updateUI();
+    tg.showAlert(isRunning ? "✅ Запущено!" : "🛑 Остановлено!");
 }
 
-// Инициализация при загрузке
 document.addEventListener('DOMContentLoaded', initApp);
