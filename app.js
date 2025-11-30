@@ -1,53 +1,74 @@
 const tg = window.Telegram.WebApp;
 
-function initApp() {
-    console.log('✅ Mini App загружен');
-    tg.expand();
-    
-    // Показываем информацию о пользователе
-    const user = tg.initDataUnsafe.user;
-    console.log('👤 User data:', user);
-}
-
-function sendTestCommand() {
+// Простая функция отправки
+function sendSimpleCommand() {
     const user = tg.initDataUnsafe.user;
     
-    const testData = {
-        action: "test_button_click",
-        button_id: "test_btn_1",
-        user_id: user?.id,
-        user_name: user?.first_name || "Anonymous",
+    const simpleData = {
+        action: "simple_test",
+        user_id: user?.id || "unknown",
+        user_name: user?.first_name || "Anonymous", 
         timestamp: new Date().toISOString(),
-        message: "Привет от Mini App! 🚀"
+        test_message: "Это тестовое сообщение!"
     };
     
-    console.log("📤 Отправляю данные:", testData);
+    console.log("📤 Отправляю:", simpleData);
     
-    // 🔥 ОТПРАВКА ДАННЫХ БОТУ
-    tg.sendData(JSON.stringify(testData));
+    // 🔥 ОТПРАВКА
+    tg.sendData(JSON.stringify(simpleData));
     
-    tg.showAlert("✅ Команда отправлена боту!");
+    // Подтверждение в Mini App
+    tg.showAlert("✅ Данные отправлены! Проверь терминал бота.");
 }
 
-// Простая HTML структура для теста
+// Простой интерфейс
 document.addEventListener('DOMContentLoaded', function() {
     document.body.innerHTML = `
-        <div style="padding: 20px; text-align: center;">
-            <h1>🧪 Test Mini App</h1>
-            <p>Нажми кнопку чтобы отправить команду боту</p>
-            <button onclick="sendTestCommand()" style="
-                background: #007bff; 
-                color: white; 
-                padding: 15px 30px; 
-                border: none; 
-                border-radius: 10px;
-                font-size: 18px;
+        <div style="padding: 20px; text-align: center; font-family: Arial;">
+            <h1>🧪 Тестовый Mini App</h1>
+            <p>Нажми кнопку чтобы отправить тестовые данные боту</p>
+            
+            <button onclick="sendSimpleCommand()" style="
+                background: #28a745;
+                color: white;
+                padding: 15px 25px;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
                 cursor: pointer;
+                margin: 10px;
             ">
-                🚀 Отправить команду
+                🚀 Отправить тест
+            </button>
+            
+            <button onclick="sendAnotherCommand()" style="
+                background: #007bff;
+                color: white;
+                padding: 15px 25px;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                cursor: pointer;
+                margin: 10px;
+            ">
+                📨 Другая команда
             </button>
         </div>
     `;
     
-    initApp();
+    tg.expand();
+    console.log("✅ Mini App готов");
 });
+
+function sendAnotherCommand() {
+    const data = {
+        action: "another_command", 
+        user_id: "test_123",
+        message: "Второй тест!",
+        timestamp: new Date().toISOString()
+    };
+    
+    console.log("📤 Отправляю другую команду:", data);
+    tg.sendData(JSON.stringify(data));
+    tg.showAlert("📨 Вторая команда отправлена!");
+}
