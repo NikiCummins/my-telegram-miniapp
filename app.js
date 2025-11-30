@@ -1,38 +1,53 @@
 const tg = window.Telegram.WebApp;
-let isRunning = false;
 
 function initApp() {
-    console.log('✅ Mini App инициализирован');
-    console.log('👤 User:', tg.initDataUnsafe.user);
+    console.log('✅ Mini App загружен');
     tg.expand();
-    updateUI();
+    
+    // Показываем информацию о пользователе
+    const user = tg.initDataUnsafe.user;
+    console.log('👤 User data:', user);
 }
 
-function toggleControl() {
-    console.log('🎯 Кнопка нажата! Текущее состояние:', isRunning);
+function sendTestCommand() {
+    const user = tg.initDataUnsafe.user;
     
-    isRunning = !isRunning;
-    
-    const controlData = {
-        action: "control_toggle",
-        state: isRunning ? "start" : "stop",
-        user_id: tg.initDataUnsafe.user?.id,
-        user_name: tg.initDataUnsafe.user?.first_name || "User",
-        timestamp: new Date().toISOString()
+    const testData = {
+        action: "test_button_click",
+        button_id: "test_btn_1",
+        user_id: user?.id,
+        user_name: user?.first_name || "Anonymous",
+        timestamp: new Date().toISOString(),
+        message: "Привет от Mini App! 🚀"
     };
     
-    console.log("📤 Отправляю данные:", controlData);
+    console.log("📤 Отправляю данные:", testData);
     
-    // Пробуем отправить данные
-    try {
-        tg.sendData(JSON.stringify(controlData));
-        console.log("✅ Данные отправлены через sendData");
-    } catch (error) {
-        console.error("❌ Ошибка sendData:", error);
-    }
+    // 🔥 ОТПРАВКА ДАННЫХ БОТУ
+    tg.sendData(JSON.stringify(testData));
     
-    updateUI();
-    tg.showAlert(isRunning ? "✅ Запущено!" : "🛑 Остановлено!");
+    tg.showAlert("✅ Команда отправлена боту!");
 }
 
-document.addEventListener('DOMContentLoaded', initApp);
+// Простая HTML структура для теста
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.innerHTML = `
+        <div style="padding: 20px; text-align: center;">
+            <h1>🧪 Test Mini App</h1>
+            <p>Нажми кнопку чтобы отправить команду боту</p>
+            <button onclick="sendTestCommand()" style="
+                background: #007bff; 
+                color: white; 
+                padding: 15px 30px; 
+                border: none; 
+                border-radius: 10px;
+                font-size: 18px;
+                cursor: pointer;
+            ">
+                🚀 Отправить команду
+            </button>
+        </div>
+    `;
+    
+    initApp();
+});
