@@ -50,14 +50,15 @@ function showCurrentDirectory() {
     console.log('📂 Показ директории:', currentPath);
     
     // Получаем элементы для текущей директории
-    let items = filterFilesByPath(currentPath);
+    let items = getFilesForDirectory(currentPath);
     
     // Если есть поисковый запрос, фильтруем
     if (searchQuery) {
         items = searchFiles(items, searchQuery);
     }
     
-    console.log('📊 Найдено элементов:', items.length);
+    console.log('📊 Найдено элементов для отображения:', items.length);
+    console.log('Элементы:', items);
     
     // Обновляем хлебные крошки
     updateBreadcrumb();
@@ -65,7 +66,7 @@ function showCurrentDirectory() {
     // Отображаем файлы
     displayFiles(items);
     
-    // Обновляем статистику
+    // Обновляем текущую статистику
     updateCurrentStats(items);
     
     // Управляем кнопкой "Назад"
@@ -76,36 +77,69 @@ function showCurrentDirectory() {
     }
 }
 
-// Фильтрация файлов по пути
-function filterFilesByPath(path) {
+// Получить файлы для указанной директории
+function getFilesForDirectory(path) {
+    console.log('🔍 Поиск файлов для пути:', path);
+    
     if (path === '/') {
-        // Корневая директория: показываем элементы с path = '.' 
-        // и элементы первого уровня вложенности
-        return allFiles.filter(item => {
-            return item.path === '.' || 
-                   (item.path.split('/').length === 1 && item.path !== '.');
+        // В корневой директории показываем:
+        // 1. Папки с path = "."
+        // 2. Папки и файлы, которые находятся прямо в корне
+        const rootItems = allFiles.filter(item => {
+            // Показываем все элементы, у которых path = "." (корень)
+            // или path является именем директории (первый уровень)
+            if (item.path === '.') {
+                return true;
+            }
+            
+            // Проверяем, находится ли элемент на первом уровне вложенности
+            // (не содержит "/" в пути)
+            if (!item.path.includes('/')) {
+                return true;
+            }
+            
+            return false;
         });
+        
+        console.log('Найдено в корне:', rootItems.map(item => item.name));
+        return rootItems;
     }
     
     // Для вложенных директорий
-    const pathParts = path.substring(1).split('/');
-    const targetPath = pathParts.join('/');
+    // path выглядит как "/CM" или "/CM/XXX"
+    const targetPath = path.substring(1); // убираем первый слэш
     
-    return allFiles.filter(item => {
-        // Проверяем, что элемент находится в этой директории
+    console.log('Ищем элементы с путем:', targetPath);
+    
+    // Находим элементы, которые находятся в этой директории
+    const itemsInDir = allFiles.filter(item => {
+        // Элемент находится в этой директории, если:
+        // 1. Его путь равен targetPath (элементы внутри директории)
         if (item.path === targetPath) {
             return true;
         }
         
-        // Проверяем вложенные элементы
-        const itemPathParts = item.path.split('/');
-        if (itemPathParts.length === pathParts.length + 1) {
-            const parentPath = itemPathParts.slice(0, -1).join('/');
-            return parentPath === targetPath;
+        // 2. Элемент находится глубже - проверяем родительскую директорию
+        // Например, для path "/CM/XXX" ищем элементы с path "CM/XXX/..."
+        const itemPath = item.path;
+        
+        // Проверяем, находится ли элемент в этой директории
+        if (itemPath.startsWith(targetPath + '/')) {
+            // Получаем следующий уровень после targetPath
+            const remainingPath = itemPath.substring(targetPath.length + 1);
+            
+            // Проверяем, что элемент находится непосредственно в этой папке
+            // (не содержит дополнительных "/" в оставшемся пути)
+            if (!remainingPath.includes('/')) {
+                return true;
+            }
         }
         
         return false;
     });
+    
+    console.log('Найдено в директории', targetPath + ':', itemsInDir.map(item => item.name));
+    return itemsInDir;
 }
 
 // Поиск файлов
@@ -121,7 +155,12 @@ function displayFiles(items) {
     const fileList = document.getElementById('file-list');
     const currentPathElement = document.getElementById('current-path');
     
-    currentPathElement.textContent = currentPath === '/' ? '/' : '/' + currentPath.substring(1);
+    // Отображаем текущий путь
+    if (currentPath === '/') {
+        currentPathElement.textContent = '/';
+    } else {
+        currentPathElement.textContent = currentPath;
+    }
     
     // Сортируем: сначала папки, потом файлы
     items.sort((a, b) => {
@@ -198,11 +237,13 @@ function displayFiles(items) {
                 history.push(currentPath);
                 
                 // Переходим в папку
-                if (currentPath === '/') {
-                    currentPath = '/' + item.name;
-                } else {
-                    currentPath = currentPath + '/' + item.name;
-                }
+                const newPath = currentPath === '/' 
+                    ? `/${item.name}` 
+                    : `${currentPath}/${item.name}`;
+                
+                console.log('Переход из', currentPath, 'в', newPath);
+                
+                currentPath = newPath;
                 
                 // Сбрасываем поиск при переходе
                 searchQuery = '';
@@ -270,10 +311,13 @@ function updateBreadcrumb() {
             const path = link.getAttribute('data-path');
             
             // Находим индекс этого пути в истории
-            const pathIndex = history.findIndex(h => h === path);
+            const pathIndex = history.indexOf(path);
             if (pathIndex !== -1) {
-                // Обрезаем историю
+                // Обрезаем историю до этого пути
                 history = history.slice(0, pathIndex);
+            } else {
+                // Если путь не в истории, очищаем историю
+                history = [];
             }
             
             currentPath = path;
@@ -284,7 +328,7 @@ function updateBreadcrumb() {
     });
 }
 
-// Обновление статистики
+// Обновление общей статистики
 function updateStats() {
     const totalFiles = allFiles.filter(f => f.type === 'file').length;
     const totalDirs = allFiles.filter(f => f.type === 'directory').length;
@@ -299,9 +343,16 @@ function updateCurrentStats(items) {
     const filesCount = items.filter(f => f.type === 'file').length;
     const dirsCount = items.filter(f => f.type === 'directory').length;
     
-    document.getElementById('current-path').nextElementSibling.innerHTML = `
-        <span>${dirsCount} папок, ${filesCount} файлов</span>
-    `;
+    // Обновляем под текущим путем
+    const pathElement = document.getElementById('current-path');
+    const statsElement = pathElement.nextElementSibling;
+    
+    if (statsElement && statsElement.classList.contains('stats')) {
+        statsElement.innerHTML = `
+            <span>${dirsCount} папок</span>
+            <span>${filesCount} файлов</span>
+        `;
+    }
 }
 
 // Вспомогательные функции
@@ -320,7 +371,7 @@ function showLoading(show) {
 
 function showError(message) {
     const fileList = document.getElementById('file-list');
-    fileList.innerHTML = `<div class="empty-folder" style="color: #dc3545;">❌ ${message}</div>`;
+    fileList.innerHTML = `<div class="empty-folder error">❌ ${message}</div>`;
 }
 
 function escapeHtml(text) {
@@ -385,10 +436,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Глобальные функции для отладки
-window.debug = {
-    getAllFiles: () => allFiles,
-    getCurrentPath: () => currentPath,
-    getHistory: () => history,
-    reloadData: () => loadData()
-};
+// Добавим стиль для ошибок в CSS
+const style = document.createElement('style');
+style.textContent = `
+    .empty-folder.error {
+        color: #dc3545;
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+`;
+document.head.appendChild(style);
