@@ -1,126 +1,70 @@
-// Инициализация Telegram Web App
-const tg = window.Telegram.WebApp;
-tg.expand();
-
-let currentPath = '/';
-let history = [];
-
 // Функция для загрузки структуры директории
 async function loadDirectory(path = '/') {
     try {
         showLoading(true);
         
+        console.log('Загрузка данных для пути:', path);
+        
         // Загружаем JSON с данными о файлах
         const response = await fetch(`data/files.json?t=${Date.now()}`);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
+        console.log('Все данные загружены:', data.files.length, 'элементов');
+        
+        if (!data.files || !Array.isArray(data.files)) {
+            throw new Error('Некорректная структура данных');
+        }
         
         // Фильтруем файлы для текущего пути
         const items = data.files.filter(item => {
-            const itemPath = item.path === '.' ? '/' : item.path;
-            return itemPath === path || 
-                   (itemPath.startsWith(path) && 
-                    itemPath.substring(path === '/' ? 1 : path.length + 1).split('/').length === 1);
+            // Нормализуем путь элемента
+            const itemPath = item.path === '.' ? '/' : '/' + item.path;
+            const normalizedCurrentPath = path === '/' ? '/' : path;
+            
+            console.log('Проверка элемента:', {
+                name: item.name,
+                itemPath: itemPath,
+                currentPath: normalizedCurrentPath,
+                type: item.type
+            });
+            
+            // Если элемент находится в текущей директории
+            if (itemPath === normalizedCurrentPath) {
+                console.log('Элемент в текущей директории:', item.name);
+                return true;
+            }
+            
+            // Если текущий путь - корень
+            if (normalizedCurrentPath === '/') {
+                // В корне показываем только элементы с path = '.' или '/'
+                return itemPath === '/' || item.path === '.';
+            }
+            
+            // Для вложенных папок: элемент должен начинаться с текущего пути + '/'
+            // и быть непосредственно внутри (не глубже)
+            if (itemPath.startsWith(normalizedCurrentPath + '/')) {
+                const remainingPath = itemPath.substring(normalizedCurrentPath.length + 1);
+                // Проверяем, что элемент находится непосредственно внутри (нет дополнительных '/')
+                if (!remainingPath.includes('/')) {
+                    console.log('Элемент непосредственно внутри:', item.name);
+                    return true;
+                }
+            }
+            
+            return false;
         });
         
+        console.log('Найдено элементов для отображения:', items.length);
         displayFiles(items, path);
         showLoading(false);
+        
     } catch (error) {
-        console.error('Error loading directory:', error);
+        console.error('Ошибка загрузки директории:', error);
         showLoading(false);
-        alert('Ошибка загрузки данных');
+        showError(`Ошибка: ${error.message}`);
     }
 }
-
-// Функция для отображения файлов
-function displayFiles(items, path) {
-    const fileList = document.getElementById('file-list');
-    const currentPathElement = document.getElementById('current-path');
-    
-    currentPathElement.textContent = path;
-    currentPath = path;
-    
-    fileList.innerHTML = '';
-    
-    if (items.length === 0) {
-        fileList.innerHTML = '<div class="file-item">Директория пуста</div>';
-        return;
-    }
-    
-    // Сортируем: сначала папки, потом файлы
-    items.sort((a, b) => {
-        if (a.type === 'directory' && b.type !== 'directory') return -1;
-        if (a.type !== 'directory' && b.type === 'directory') return 1;
-        return a.name.localeCompare(b.name);
-    });
-    
-    items.forEach(item => {
-        const fileItem = document.createElement('div');
-        fileItem.className = 'file-item';
-        
-        let icon = '📄';
-        if (item.type === 'directory') icon = '📁';
-        if (item.name.endsWith('.jpg') || item.name.endsWith('.png')) icon = '🖼️';
-        if (item.name.endsWith('.mp3') || item.name.endsWith('.wav')) icon = '🎵';
-        if (item.name.endsWith('.mp4') || item.name.endsWith('.avi')) icon = '🎬';
-        if (item.name.endsWith('.pdf')) icon = '📕';
-        if (item.name.endsWith('.zip') || item.name.endsWith('.rar')) icon = '📦';
-        
-        const filePath = item.path === '.' ? '/' : item.path;
-        const displayName = filePath === '/' ? item.name : item.name;
-        
-        fileItem.innerHTML = `
-            <div class="file-icon">${icon}</div>
-            <div class="file-info">
-                <div class="file-name">${displayName}</div>
-                ${item.type !== 'directory' ? `<div class="file-size">${formatFileSize(item.size)}</div>` : ''}
-            </div>
-        `;
-        
-        fileItem.onclick = () => {
-            if (item.type === 'directory') {
-                history.push(path);
-                const newPath = filePath === '/' ? `/${item.name}` : `${filePath}/${item.name}`;
-                loadDirectory(newPath);
-            } else {
-                // Для файлов можно добавить просмотр/скачивание
-                tg.showAlert(`Файл: ${item.name}\nРазмер: ${formatFileSize(item.size)}`);
-            }
-        };
-        
-        fileList.appendChild(fileItem);
-    });
-}
-
-// Вспомогательные функции
-function formatFileSize(bytes) {
-    if (bytes === 0) return '0 Б';
-    const k = 1024;
-    const sizes = ['Б', 'КБ', 'МБ', 'ГБ'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-}
-
-function showLoading(show) {
-    document.getElementById('loading').style.display = show ? 'block' : 'none';
-    document.getElementById('file-list').style.display = show ? 'none' : 'block';
-}
-
-// Обработчики событий
-document.getElementById('refresh-btn').onclick = () => {
-    loadDirectory(currentPath);
-};
-
-document.getElementById('back-btn').onclick = () => {
-    if (history.length > 0) {
-        const prevPath = history.pop();
-        loadDirectory(prevPath);
-    }
-};
-
-// Инициализация при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-    loadDirectory('/');
-});
-
-// Отправка данных в Telegram
-tg.ready();
