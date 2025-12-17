@@ -307,4 +307,33 @@ footer {
         font-size: 24px;
         margin-right: 12px;
     }
+
+        .empty-folder.error {
+        color: #dc3545;
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .file-item.directory {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        border-left: 4px solid #2196f3;
+    }
+    
+    .file-item.file {
+        background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+        border-left: 4px solid #9c27b0;
+    }
+    
+    .file-item.ecfg-file {
+        background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        border-left: 4px solid #4caf50;
+    }
+    
+    .file-item.ecfg-file .file-icon {
+        color: #2e7d32;
+    }
 }
