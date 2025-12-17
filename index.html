@@ -3,18 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Control</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Файловый менеджер</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>🔄 Simple Control</h1>
-        <div class="status" id="status">Статус: Остановлен</div>
-        <button class="control-btn" id="controlBtn" onclick="toggleControl()">
-            🚀 Start
-        </button>
+        <header>
+            <h1>📁 Файловый менеджер</h1>
+            <div class="path" id="current-path">/</div>
+        </header>
+        
+        <div class="controls">
+            <button id="refresh-btn" class="btn">🔄 Обновить</button>
+            <button id="back-btn" class="btn">⬅️ Назад</button>
+        </div>
+        
+        <div class="loading" id="loading">
+            Загрузка...
+        </div>
+        
+        <div class="file-list" id="file-list">
+            <!-- Список файлов будет здесь -->
+        </div>
+        
+        <footer>
+            <p>Используйте для навигации по директориям</p>
+        </footer>
     </div>
-    <script src="app.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
