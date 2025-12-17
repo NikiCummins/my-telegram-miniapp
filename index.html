@@ -3,24 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Файловый менеджер</title>
+    <title>Файловый менеджер ECM</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📁 Файловый менеджер</h1>
+            <h1>📁 ECM Файловый менеджер</h1>
             <div class="path" id="current-path">/</div>
+            <div class="stats" id="stats">
+                <span id="folders-count">0 папок</span>
+                <span id="files-count">0 файлов</span>
+            </div>
         </header>
         
         <div class="controls">
-            <button id="refresh-btn" class="btn">🔄 Обновить</button>
+            <button id="home-btn" class="btn">🏠 В корень</button>
             <button id="back-btn" class="btn">⬅️ Назад</button>
+            <button id="refresh-btn" class="btn">🔄 Обновить</button>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Поиск файлов и папок...">
+            <button id="search-btn" class="btn-small">🔍</button>
         </div>
         
         <div class="loading" id="loading">
+            <div class="spinner"></div>
             Загрузка...
+        </div>
+        
+        <div class="breadcrumb" id="breadcrumb">
+            <a href="#" data-path="/">Корень</a>
         </div>
         
         <div class="file-list" id="file-list">
@@ -28,7 +43,7 @@
         </div>
         
         <footer>
-            <p>Используйте для навигации по директориям</p>
+            <p>Всего: <span id="total-items">0</span> элементов</p>
         </footer>
     </div>
     
