@@ -13,19 +13,19 @@
         }
 
         :root {
-            --tg-theme-bg-color: #18222d;
-            --tg-theme-text-color: #ffffff;
-            --tg-theme-hint-color: #a8b1bb;
-            --tg-theme-link-color: #5ac8fb;
-            --tg-theme-button-color: #2ea6ff;
-            --tg-theme-button-text-color: #ffffff;
-            --tg-theme-secondary-bg-color: #131415;
+            --tg-bg: #18222d;
+            --tg-text: #ffffff;
+            --tg-hint: #a8b1bb;
+            --tg-link: #5ac8fb;
+            --tg-button: #2ea6ff;
+            --tg-button-text: #ffffff;
+            --tg-secondary: #131415;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--tg-theme-bg-color);
-            color: var(--tg-theme-text-color);
+            background: var(--tg-bg);
+            color: var(--tg-text);
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -33,11 +33,10 @@
         .app-container {
             max-width: 100%;
             margin: 0 auto;
-            padding: 0;
         }
 
         .header {
-            background: var(--tg-theme-secondary-bg-color);
+            background: var(--tg-secondary);
             padding: 16px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
@@ -48,41 +47,78 @@
         .header-content {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 12px;
         }
 
-        .path-navigation {
-            flex: 1;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            font-size: 14px;
-            color: var(--tg-theme-hint-color);
-            padding: 8px 0;
-        }
-
-        .back-button {
+        .back-btn {
             background: none;
             border: none;
-            color: var(--tg-theme-button-color);
-            font-size: 16px;
+            color: var(--tg-button);
+            font-size: 18px;
             cursor: pointer;
-            padding: 8px;
-            margin-right: 12px;
+            padding: 4px;
             display: none;
         }
 
-        .back-button.visible {
+        .back-btn.visible {
             display: block;
         }
 
-        .file-list {
-            list-style: none;
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .path {
+            font-size: 12px;
+            color: var(--tg-hint);
+            margin-top: 4px;
+        }
+
+        .search-container {
+            padding: 12px 16px;
+            background: var(--tg-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--tg-hint);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 12px 10px 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--tg-text);
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--tg-button);
+        }
+
+        .content {
             padding: 0;
         }
 
-        .file-item {
-            padding: 16px;
+        .items-list {
+            list-style: none;
+        }
+
+        .item {
+            padding: 14px 16px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
@@ -90,12 +126,12 @@
             transition: background 0.2s;
         }
 
-        .file-item:hover {
+        .item:hover {
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .file-icon {
-            margin-right: 16px;
+        .item-icon {
+            margin-right: 14px;
             font-size: 20px;
             width: 24px;
             text-align: center;
@@ -105,12 +141,12 @@
             color: #ffb74d;
         }
 
-        .file-details {
+        .item-info {
             flex: 1;
             min-width: 0;
         }
 
-        .file-name {
+        .item-name {
             font-size: 16px;
             margin-bottom: 4px;
             overflow: hidden;
@@ -118,44 +154,37 @@
             white-space: nowrap;
         }
 
-        .file-info {
+        .item-details {
             font-size: 12px;
-            color: var(--tg-theme-hint-color);
-            display: flex;
-            gap: 12px;
+            color: var(--tg-hint);
         }
 
-        .file-size {
+        .item-size {
             font-feature-settings: "tnum";
         }
 
-        .file-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .action-button {
-            background: none;
-            border: none;
-            color: var(--tg-theme-hint-color);
-            cursor: pointer;
-            padding: 4px;
-            font-size: 16px;
+        .item-count {
+            background: var(--tg-button);
+            color: var(--tg-button-text);
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
         }
 
         .loading {
-            padding: 40px;
+            padding: 40px 20px;
             text-align: center;
-            color: var(--tg-theme-hint-color);
+            color: var(--tg-hint);
         }
 
         .empty-state {
             padding: 60px 20px;
             text-align: center;
-            color: var(--tg-theme-hint-color);
+            color: var(--tg-hint);
         }
 
-        .error-message {
+        .error {
             background: rgba(255, 59, 48, 0.1);
             border: 1px solid rgba(255, 59, 48, 0.3);
             border-radius: 8px;
@@ -165,61 +194,92 @@
             text-align: center;
         }
 
-        .search-box {
-            margin: 16px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 16px 12px 40px;
-            background: var(--tg-theme-secondary-bg-color);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: var(--tg-theme-text-color);
-            font-size: 14px;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--tg-theme-hint-color);
-        }
-
-        @media (max-width: 480px) {
-            .file-item {
-                padding: 12px;
-            }
-            
-            .header {
-                padding: 12px;
-            }
+        .file-icon {
+            color: #64b5f6;
         }
 
         .context-menu {
             position: fixed;
-            background: var(--tg-theme-secondary-bg-color);
+            background: var(--tg-secondary);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             padding: 8px 0;
-            min-width: 200px;
-            display: none;
+            min-width: 160px;
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: none;
         }
 
-        .context-menu-item {
-            padding: 12px 16px;
+        .context-item {
+            padding: 10px 16px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            font-size: 14px;
         }
 
-        .context-menu-item:hover {
+        .context-item:hover {
             background: rgba(255, 255, 255, 0.05);
+        }
+
+        .context-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 4px 0;
+        }
+
+        @media (max-width: 480px) {
+            .item {
+                padding: 12px 16px;
+            }
+            
+            .header {
+                padding: 12px 16px;
+            }
+            
+            .title {
+                font-size: 16px;
+            }
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px;
+            background: var(--tg-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .page-btn {
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 6px;
+            color: var(--tg-text);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .page-btn.active {
+            background: var(--tg-button);
+            color: var(--tg-button-text);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .stats {
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: var(--tg-hint);
+            display: flex;
+            justify-content: space-between;
         }
     </style>
 </head>
@@ -227,43 +287,61 @@
     <div class="app-container">
         <div class="header">
             <div class="header-content">
-                <button class="back-button" id="backButton">
+                <button class="back-btn" id="backBtn">
                     <i class="fas fa-arrow-left"></i>
                 </button>
-                <div class="path-navigation" id="currentPath">/</div>
+                <div>
+                    <div class="title" id="pageTitle">Файловый менеджер</div>
+                    <div class="path" id="currentPath">/</div>
+                </div>
             </div>
         </div>
 
-        <div class="search-box">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="search-input" id="searchInput" placeholder="Поиск файлов...">
+        <div class="search-container" id="searchContainer">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Поиск...">
+            </div>
         </div>
 
-        <div id="loadingIndicator" class="loading">
-            <i class="fas fa-spinner fa-spin"></i> Загрузка файлов...
+        <div class="stats" id="stats">
+            <span>Загрузка...</span>
         </div>
 
-        <ul class="file-list" id="fileList"></ul>
+        <div class="content">
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner fa-spin"></i> Загрузка...
+            </div>
 
-        <div id="emptyState" class="empty-state" style="display: none;">
-            <i class="fas fa-folder-open" style="font-size: 48px; margin-bottom: 16px;"></i>
-            <p>Папка пуста</p>
+            <ul class="items-list" id="itemsList"></ul>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <i class="fas fa-folder-open" style="font-size: 48px; margin-bottom: 16px;"></i>
+                <p>Папка пуста</p>
+            </div>
+
+            <div class="error" id="error" style="display: none;"></div>
         </div>
 
-        <div id="errorContainer" class="error-message" style="display: none;"></div>
+        <div class="pagination" id="pagination" style="display: none;">
+            <button class="page-btn" id="prevPage">← Назад</button>
+            <span id="pageInfo">Страница 1</span>
+            <button class="page-btn" id="nextPage">Вперед →</button>
+        </div>
 
         <div class="context-menu" id="contextMenu">
-            <div class="context-menu-item" data-action="download">
-                <i class="fas fa-download"></i>
-                <span>Скачать</span>
+            <div class="context-item" data-action="open">
+                <i class="fas fa-folder-open"></i>
+                <span>Открыть</span>
             </div>
-            <div class="context-menu-item" data-action="info">
+            <div class="context-item" data-action="info">
                 <i class="fas fa-info-circle"></i>
                 <span>Информация</span>
             </div>
-            <div class="context-menu-item" data-action="share">
-                <i class="fas fa-share"></i>
-                <span>Поделиться</span>
+            <div class="context-divider"></div>
+            <div class="context-item" data-action="download">
+                <i class="fas fa-download"></i>
+                <span>Скачать</span>
             </div>
         </div>
     </div>
