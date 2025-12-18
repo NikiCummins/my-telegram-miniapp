@@ -3,55 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Файловый менеджер</title>
-    <link rel="stylesheet" href="style.css">
+    <title>📁 Файлы</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
+            background: #f0f2f5; 
+            padding: 10px; 
+            font-size: 14px; 
+        }
+        .container { max-width: 100%; }
+        .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 12px 15px; 
+            border-radius: 10px 10px 0 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .header h1 { font-size: 16px; font-weight: 600; }
+        .stats { font-size: 12px; opacity: 0.9; }
+        .path { 
+            background: white; 
+            padding: 8px 12px; 
+            font-family: monospace; 
+            font-size: 13px; 
+            border-bottom: 1px solid #ddd; 
+            white-space: nowrap; 
+            overflow-x: auto; 
+        }
+        .controls { 
+            background: white; 
+            padding: 10px; 
+            display: flex; 
+            gap: 8px; 
+            border-bottom: 1px solid #ddd; 
+        }
+        .btn { 
+            padding: 6px 12px; 
+            border: none; 
+            border-radius: 6px; 
+            background: #667eea; 
+            color: white; 
+            cursor: pointer; 
+            font-size: 13px; 
+        }
+        .search { 
+            flex: 1; 
+            padding: 6px 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px; 
+            font-size: 13px; 
+        }
+        .file-list { 
+            background: white; 
+            min-height: 300px; 
+            max-height: 70vh; 
+            overflow-y: auto; 
+        }
+        .file-item { 
+            padding: 8px 12px; 
+            border-bottom: 1px solid #f0f0f0; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            cursor: pointer; 
+        }
+        .file-item:hover { background: #f8f9fa; }
+        .file-icon { font-size: 18px; width: 24px; }
+        .file-name { 
+            flex: 1; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            font-weight: 500; 
+        }
+        .file-size { 
+            color: #666; 
+            font-size: 12px; 
+            min-width: 60px; 
+            text-align: right; 
+        }
+        .dir-arrow { color: #999; font-size: 14px; }
+        .loading { 
+            text-align: center; 
+            padding: 40px; 
+            color: #666; 
+            display: none; 
+        }
+        .footer { 
+            text-align: center; 
+            padding: 10px; 
+            color: #666; 
+            font-size: 12px; 
+            background: white; 
+            border-radius: 0 0 10px 10px; 
+        }
+        .empty { 
+            text-align: center; 
+            padding: 40px; 
+            color: #666; 
+            font-style: italic; 
+        }
+    </style>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="header-top">
-                <h1>📁 Файлы</h1>
-                <div class="header-stats">
-                    <span id="current-stats">0/0</span>
-                </div>
-            </div>
-            <div class="path-bar">
-                <div class="breadcrumb" id="breadcrumb">
-                    <span class="crumb">Корень</span>
-                </div>
-            </div>
-        </header>
+        <div class="header">
+            <h1>📁 Файловый менеджер</h1>
+            <div class="stats" id="stats">0 файлов</div>
+        </div>
+        
+        <div class="path" id="path">/</div>
         
         <div class="controls">
-            <button id="home-btn" class="btn-icon" title="В корень">🏠</button>
-            <button id="back-btn" class="btn-icon" title="Назад">←</button>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Поиск...">
-                <button id="search-btn" class="btn-icon">🔍</button>
-            </div>
-            <button id="refresh-btn" class="btn-icon" title="Обновить">↻</button>
+            <button class="btn" onclick="goHome()">🏠</button>
+            <button class="btn" onclick="goBack()">←</button>
+            <input type="text" class="search" id="search" placeholder="Поиск..." onkeypress="searchKeyPress(event)">
+            <button class="btn" onclick="doSearch()">🔍</button>
         </div>
         
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <span>Загрузка...</span>
+        <div class="loading" id="loading">Загрузка...</div>
+        
+        <div class="file-list" id="fileList">
+            <!-- Файлы появятся здесь -->
         </div>
         
-        <div class="file-list" id="file-list">
-            <!-- Файлы будут здесь -->
-        </div>
-        
-        <div class="list-footer">
-            <div class="stats-mini">
-                <span id="total-items">0</span> эл.
-            </div>
-            <div class="pagination" id="pagination">
-                <!-- Пагинация будет здесь -->
-            </div>
+        <div class="footer">
+            <span id="counter">0 элементов</span>
         </div>
     </div>
     
-    <script src="script_optimized.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
