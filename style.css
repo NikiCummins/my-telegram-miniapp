@@ -7,157 +7,162 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     background: #f5f5f5;
-    min-height: 100vh;
     color: #333;
     font-size: 14px;
+    line-height: 1.4;
 }
 
 .container {
     max-width: 100%;
-    margin: 0;
-    background: white;
     min-height: 100vh;
+    background: white;
 }
 
-/* Хедер */
-.header-top {
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
 }
 
-.header-top h1 {
+.header h1 {
     font-size: 18px;
     font-weight: 600;
-    margin: 0;
 }
 
-.header-stats {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 4px 10px;
-    border-radius: 12px;
+.stats {
     font-size: 13px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    border-radius: 15px;
     font-weight: 500;
 }
 
-.path-bar {
-    padding: 8px 16px;
+/* Path */
+.path-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     background: #f8f9fa;
     border-bottom: 1px solid #e9ecef;
 }
 
-.breadcrumb {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    padding: 4px 0;
-}
-
-.breadcrumb::-webkit-scrollbar {
-    display: none;
-}
-
-.crumb {
-    padding: 2px 6px;
-    cursor: pointer;
-    color: #667eea;
+.path {
+    font-family: 'Courier New', monospace;
     font-size: 13px;
-    border-radius: 4px;
+    color: #555;
+    word-break: break-all;
 }
 
-.crumb:hover {
-    background: #e3f2fd;
-}
-
-.crumb.active {
-    color: #333;
-    cursor: default;
-    font-weight: 500;
-}
-
-.sep {
-    color: #999;
-    margin: 0 4px;
+.path-info {
     font-size: 12px;
+    color: #666;
+    background: #e9ecef;
+    padding: 4px 10px;
+    border-radius: 10px;
+    white-space: nowrap;
+    margin-left: 10px;
 }
 
-/* Контролы */
+/* Controls */
 .controls {
     display: flex;
-    gap: 8px;
-    padding: 12px 16px;
+    gap: 10px;
+    padding: 15px 20px;
     background: white;
     border-bottom: 1px solid #e9ecef;
-    align-items: center;
 }
 
-.btn-icon {
-    width: 36px;
-    height: 36px;
+.btn {
+    padding: 10px 15px;
     border: none;
     border-radius: 8px;
-    background: #f0f0f0;
-    color: #555;
-    font-size: 16px;
+    background: #667eea;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all 0.2s;
     flex-shrink: 0;
 }
 
-.btn-icon:hover {
-    background: #e0e0e0;
+.btn:hover {
+    background: #5a67d8;
     transform: translateY(-1px);
 }
 
-.search-container {
+.search {
     flex: 1;
-    display: flex;
-    gap: 8px;
-}
-
-#search-input {
-    flex: 1;
-    padding: 8px 12px;
+    padding: 10px 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 14px;
     outline: none;
 }
 
-#search-input:focus {
+.search:focus {
     border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
 }
 
-/* Список файлов */
+/* Content */
+.content {
+    min-height: 60vh;
+}
+
+.breadcrumb {
+    padding: 15px 20px 10px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 13px;
+}
+
+.breadcrumb-item {
+    color: #667eea;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.breadcrumb-item:hover {
+    background: #e3f2fd;
+}
+
+.breadcrumb-separator {
+    color: #999;
+    margin: 0 2px;
+}
+
+.breadcrumb-current {
+    color: #333;
+    font-weight: 500;
+    padding: 2px 6px;
+}
+
+/* File List */
 .file-list {
-    padding: 4px 16px 8px;
+    padding: 5px 0;
 }
 
 .file-item {
     display: flex;
     align-items: center;
-    padding: 8px 0;
+    padding: 12px 20px;
     border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
     transition: background 0.2s;
-    min-height: 48px;
 }
 
 .file-item:hover {
     background: #f8f9fa;
-}
-
-.file-item:active {
-    background: #e9ecef;
 }
 
 .file-icon {
@@ -167,7 +172,7 @@ body {
     flex-shrink: 0;
 }
 
-.file-content {
+.file-info {
     flex: 1;
     min-width: 0;
 }
@@ -175,16 +180,15 @@ body {
 .file-name {
     font-weight: 500;
     color: #333;
-    margin-bottom: 2px;
-    font-size: 14px;
+    margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.file-meta {
+.file-details {
     display: flex;
-    gap: 12px;
+    gap: 15px;
     font-size: 12px;
     color: #666;
 }
@@ -201,37 +205,38 @@ body {
 .file-arrow {
     color: #999;
     font-size: 16px;
-    padding: 0 8px;
+    margin-left: 10px;
     flex-shrink: 0;
 }
 
-/* Директории и файлы */
+/* Directory specific */
+.file-item.directory {
+    background: linear-gradient(to right, #f8f9fa, white);
+}
+
 .file-item.directory .file-icon {
     color: #ff9800;
 }
 
-.file-item.directory .file-name {
-    font-weight: 600;
-}
-
-/* Загрузка */
+/* Loading */
 .loading {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 60px 20px;
-    display: none;
+    text-align: center;
+    color: #666;
 }
 
 .spinner {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border: 3px solid #f3f3f3;
     border-top: 3px solid #667eea;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 @keyframes spin {
@@ -239,89 +244,69 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Пустое состояние */
+/* Empty state */
 .empty-state {
     text-align: center;
     padding: 60px 20px;
     color: #666;
-    font-size: 14px;
+    font-style: italic;
 }
 
 .empty-state.error {
     color: #dc3545;
+    background: #f8d7da;
+    border-radius: 8px;
+    margin: 20px;
 }
 
-/* Подвал списка */
-.list-footer {
-    position: sticky;
-    bottom: 0;
-    background: white;
+/* Footer */
+.footer {
+    padding: 15px 20px;
+    background: #f8f9fa;
     border-top: 1px solid #e9ecef;
-    padding: 12px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
 }
 
-.stats-mini {
-    color: #666;
+.footer-stats {
     font-size: 13px;
-    font-weight: 500;
+    color: #666;
 }
 
-.pagination {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-}
-
-.page-btn {
-    min-width: 28px;
-    height: 28px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    cursor: pointer;
-    color: #555;
-    padding: 0 6px;
-}
-
-.page-btn:hover {
-    background: #f0f0f0;
-    border-color: #ccc;
-}
-
-.page-btn.active {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
-    font-weight: 500;
-}
-
-.page-dots {
-    color: #999;
-    padding: 0 4px;
-    font-size: 12px;
-}
-
-/* Адаптивность */
-@media (max-width: 480px) {
-    .file-meta {
-        flex-direction: column;
-        gap: 2px;
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 15px;
+    }
+    
+    .header h1 {
+        font-size: 16px;
     }
     
     .controls {
-        padding: 8px 12px;
+        padding: 12px 15px;
+        gap: 8px;
     }
     
-    .btn-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
+    .btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .search {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .file-item {
+        padding: 10px 15px;
+    }
+    
+    .file-details {
+        flex-direction: column;
+        gap: 3px;
+    }
+    
+    .path-container {
+        padding: 8px 15px;
     }
 }
