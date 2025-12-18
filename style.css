@@ -6,231 +6,192 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #f5f5f5;
     min-height: 100vh;
-    padding: 20px;
     color: #333;
+    font-size: 14px;
 }
 
 .container {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     background: white;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    min-height: 100vh;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #f0f0f0;
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 24px;
-}
-
-.path {
-    background: #f5f5f5;
-    padding: 12px;
-    border-radius: 10px;
-    font-family: 'Courier New', monospace;
-    word-break: break-all;
-    margin: 10px 0;
-    font-size: 14px;
-    border: 1px solid #ddd;
-}
-
-.stats {
+/* Хедер */
+.header-top {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #666;
-}
-
-.stats span {
-    padding: 5px 10px;
-    background: #e3f2fd;
-    border-radius: 5px;
-    font-weight: 500;
-}
-
-.controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.btn {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    font-size: 16px;
-    cursor: pointer;
-    flex: 1;
-    transition: all 0.3s;
+}
+
+.header-top h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.header-stats {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
     font-weight: 500;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+.path-bar {
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
 }
 
-.btn-small {
-    padding: 8px 15px;
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0;
+}
+
+.breadcrumb::-webkit-scrollbar {
+    display: none;
+}
+
+.crumb {
+    padding: 2px 6px;
+    cursor: pointer;
+    color: #667eea;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.crumb:hover {
+    background: #e3f2fd;
+}
+
+.crumb.active {
+    color: #333;
+    cursor: default;
+    font-weight: 500;
+}
+
+.sep {
+    color: #999;
+    margin: 0 4px;
+    font-size: 12px;
+}
+
+/* Контролы */
+.controls {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+    align-items: center;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
     border: none;
     border-radius: 8px;
-    background: #667eea;
-    color: white;
+    background: #f0f0f0;
+    color: #555;
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn-small:hover {
-    background: #5a67d8;
-}
-
-.search-box {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-icon:hover {
+    background: #e0e0e0;
+    transform: translateY(-1px);
+}
+
+.search-container {
+    flex: 1;
+    display: flex;
+    gap: 8px;
 }
 
 #search-input {
     flex: 1;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
 }
 
 #search-input:focus {
-    outline: none;
     border-color: #667eea;
 }
 
-.breadcrumb {
-    margin-bottom: 20px;
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.breadcrumb a {
-    color: #667eea;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.breadcrumb a:hover {
-    background: #e3f2fd;
-}
-
-.breadcrumb span {
-    padding: 5px 10px;
-    color: #666;
-}
-
-.loading {
-    text-align: center;
-    padding: 40px;
-    font-size: 18px;
-    color: #666;
-    display: none;
-}
-
-.spinner {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin-bottom: 15px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #667eea;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
+/* Список файлов */
 .file-list {
-    display: grid;
-    gap: 10px;
-    margin-bottom: 20px;
+    padding: 4px 16px 8px;
 }
 
 .file-item {
     display: flex;
     align-items: center;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
-    transition: all 0.3s;
-    border: 2px solid transparent;
-    position: relative;
+    transition: background 0.2s;
+    min-height: 48px;
 }
 
 .file-item:hover {
+    background: #f8f9fa;
+}
+
+.file-item:active {
     background: #e9ecef;
-    border-color: #667eea;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .file-icon {
-    font-size: 28px;
-    margin-right: 15px;
+    font-size: 20px;
     width: 40px;
     text-align: center;
+    flex-shrink: 0;
 }
 
-.file-info {
+.file-content {
     flex: 1;
     min-width: 0;
 }
 
 .file-name {
-    font-weight: 600;
+    font-weight: 500;
     color: #333;
-    margin-bottom: 5px;
-    word-break: break-word;
+    margin-bottom: 2px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.file-details {
+.file-meta {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     font-size: 12px;
     color: #666;
 }
 
-.file-type {
-    background: #e3f2fd;
-    color: #1976d2;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: 500;
-}
-
 .file-size {
-    color: #666;
+    color: #667eea;
+    font-weight: 500;
 }
 
 .file-date {
@@ -240,100 +201,127 @@ h1 {
 .file-arrow {
     color: #999;
     font-size: 16px;
-    margin-left: 10px;
+    padding: 0 8px;
+    flex-shrink: 0;
 }
 
-.empty-folder {
+/* Директории и файлы */
+.file-item.directory .file-icon {
+    color: #ff9800;
+}
+
+.file-item.directory .file-name {
+    font-weight: 600;
+}
+
+/* Загрузка */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    display: none;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Пустое состояние */
+.empty-state {
     text-align: center;
-    padding: 40px;
-    color: #666;
-    font-style: italic;
-    background: #f8f9fa;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-
-.file-item.directory {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-}
-
-.file-item.file {
-    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-}
-
-.file-item.ecfg-file {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-}
-
-.file-item.ecfg-file .file-icon {
-    color: #2e7d32;
-}
-
-footer {
-    margin-top: 30px;
-    text-align: center;
+    padding: 60px 20px;
     color: #666;
     font-size: 14px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
 }
 
-#total-items {
-    font-weight: bold;
-    color: #667eea;
+.empty-state.error {
+    color: #dc3545;
+}
+
+/* Подвал списка */
+.list-footer {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #e9ecef;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats-mini {
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.pagination {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.page-btn {
+    min-width: 28px;
+    height: 28px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+    color: #555;
+    padding: 0 6px;
+}
+
+.page-btn:hover {
+    background: #f0f0f0;
+    border-color: #ccc;
+}
+
+.page-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    font-weight: 500;
+}
+
+.page-dots {
+    color: #999;
+    padding: 0 4px;
+    font-size: 12px;
 }
 
 /* Адаптивность */
-@media (max-width: 600px) {
-    .container {
-        padding: 15px;
-        margin: 10px;
+@media (max-width: 480px) {
+    .file-meta {
+        flex-direction: column;
+        gap: 2px;
     }
     
     .controls {
-        flex-direction: column;
+        padding: 8px 12px;
     }
     
-    .file-details {
-        flex-direction: column;
-        gap: 5px;
-    }
-    
-    .file-item {
-        padding: 12px;
-    }
-    
-    .file-icon {
-        font-size: 24px;
-        margin-right: 12px;
-    }
-
-        .empty-folder.error {
-        color: #dc3545;
-        background: #f8d7da;
-        border: 1px solid #f5c6cb;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        margin: 20px 0;
-    }
-    
-    .file-item.directory {
-        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-        border-left: 4px solid #2196f3;
-    }
-    
-    .file-item.file {
-        background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-        border-left: 4px solid #9c27b0;
-    }
-    
-    .file-item.ecfg-file {
-        background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-        border-left: 4px solid #4caf50;
-    }
-    
-    .file-item.ecfg-file .file-icon {
-        color: #2e7d32;
+    .btn-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
     }
 }
