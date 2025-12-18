@@ -1,0 +1,32 @@
+{
+  "type": "root",
+  "path": "F:\\SERVER",
+  "folders_count": 5,
+  "folders": [
+    {
+      "name": "- ECFG ECM -",
+      "path": "- ECFG ECM -",
+      "is_dir": true
+    },
+    {
+      "name": "-CALIBRATIONS-",
+      "path": "-CALIBRATIONS-",
+      "is_dir": true
+    },
+    {
+      "name": "-DAMOS-",
+      "path": "-DAMOS-",
+      "is_dir": true
+    },
+    {
+      "name": "-SOFTWAER-",
+      "path": "-SOFTWAER-",
+      "is_dir": true
+    },
+    {
+      "name": "-Уроки WinOls-",
+      "path": "-Уроки WinOls-",
+      "is_dir": true
+    }
+  ]
+}
