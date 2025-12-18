@@ -8,6 +8,8 @@ let history = [];
 let allItems = [];
 let searchText = '';
 let cachedItems = new Map(); // Кэш для ускорения
+let currentPage = 1;
+const ITEMS_PER_PAGE = 50;
 
 async function loadData() {
     showLoading(true);
@@ -95,6 +97,16 @@ function showCurrentDirectory() {
         tg.BackButton.show();
     } else {
         tg.BackButton.hide();
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    const pageItems = items.slice(start, end);
+    
+    // Отображаем только страницу
+    listEl.innerHTML = pageItems.map(item => createItemHTML(item)).join('');
+    
+    // Добавляем пагинацию внизу
+    if (items.length > ITEMS_PER_PAGE) {
+        listEl.innerHTML += createPagination(items.length);
     }
 }
 
