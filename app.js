@@ -1,326 +1,237 @@
-// Telegram Web App
+// Telegram
 const tg = window.Telegram.WebApp;
 tg.expand();
-tg.BackButton.hide();
 
 // Состояние
 let currentPath = '/';
 let history = [];
 let searchQuery = '';
-let indexData = null;
-let cachedContents = new Map(); // Кэш содержимого директорий
-let rootContents = null;
+let fileData = null;
+let currentDirs = [];
+let currentFiles = [];
 
-// Элементы
-const elements = {
-    totalStats: document.getElementById('totalStats'),
-    currentPath: document.getElementById('currentPath'),
-    breadcrumb: document.getElementById('breadcrumb'),
-    fileList: document.getElementById('fileList'),
-    loading: document.getElementById('loading'),
-    currentStats: document.getElementById('currentStats'),
-    searchInput: document.getElementById('searchInput')
-};
-
-// Загрузка данных
-async function loadData() {
+// Инициализация
+async function init() {
     showLoading(true);
     
     try {
-        console.log('📥 Загрузка индекса...');
+        console.log('Загрузка данных...');
         
-        // Загружаем корневую директорию сразу
-        const rootResponse = await fetch('data/root.json?t=' + Date.now());
-        if (!rootResponse.ok) throw new Error('Не удалось загрузить корневую директорию');
-        rootContents = await rootResponse.json();
+        // Пробуем загрузить оптимизированный индекс
+        let response = await fetch('data/index_opt.json');
+        if (!response.ok) {
+            // Если нет оптимизированного, пробуем обычный
+            response = await fetch('data/index.min.json');
+            if (!response.ok) throw new Error('Не удалось загрузить индекс');
+        }
         
-        // Загружаем индекс
-        const indexResponse = await fetch('data/index.json?t=' + Date.now());
-        if (!indexResponse.ok) throw new Error('Не удалось загрузить индекс');
-        indexData = await indexResponse.json();
-        
-        console.log('✅ Данные загружены');
-        console.log(`📊 Всего: ${indexData.total_files} файлов, ${indexData.total_dirs} папок`);
+        fileData = await response.json();
+        console.log('Данные загружены:', fileData);
         
         // Обновляем статистику
-        updateTotalStats();
+        updateStats();
         
-        // Кэшируем корневую директорию
-        cachedContents.set('/', rootContents);
-        
-        // Показываем корневую директорию
-        await showDirectory('/');
+        // Загружаем корневую директорию
+        await loadDirectory('/');
         
     } catch (error) {
-        console.error('❌ Ошибка загрузки:', error);
-        showError('Не удалось загрузить данные файлового менеджера');
+        console.error('Ошибка:', error);
+        showError('Ошибка загрузки данных');
     }
     
     showLoading(false);
 }
 
-// Показать директорию
-async function showDirectory(path) {
-    console.log(`📂 Открытие директории: "${path}"`);
-    
-    // Обновляем текущий путь
-    currentPath = path;
-    
-    // Обновляем отображение
-    updatePathDisplay();
-    updateBreadcrumb();
-    
-    // Загружаем содержимое
-    await loadDirectoryContents(path);
-    
-    // Управляем кнопкой "Назад"
-    updateBackButton();
-}
-
-// Загрузить содержимое директории
-async function loadDirectoryContents(path) {
+// Загрузка директории
+async function loadDirectory(path) {
     showLoading(true);
     
     try {
-        // Проверяем кэш
-        if (cachedContents.has(path)) {
-            console.log(`♻️ Используем кэш для: "${path}"`);
-            displayContents(cachedContents.get(path));
-            showLoading(false);
-            return;
+        console.log('Загрузка директории:', path);
+        
+        // Обновляем текущий путь
+        currentPath = path;
+        document.getElementById('currentPath').textContent = path || '/';
+        
+        let dirs = [];
+        let files = [];
+        
+        if (fileData.structure) {
+            // Старая структура
+            const dirData = fileData.structure[path] || fileData.structure[''] || { d: [], f: [] };
+            dirs = dirData.d || [];
+            files = dirData.f || [];
+        } else if (fileData.dirs_list) {
+            // Новая оптимизированная структура
+            dirs = fileData.dirs_list[path] || fileData.dirs_list[''] || [];
+            
+            // Загружаем файлы отдельно если нужно
+            if (fileData.parts_mapping && fileData.parts_mapping[path]) {
+                const filesResponse = await fetch(`data/${fileData.parts_mapping[path]}`);
+                if (filesResponse.ok) {
+                    const filesData = await filesResponse.json();
+                    files = filesData.files || [];
+                }
+            } else {
+                files = [];
+            }
         }
         
-        console.log(`📥 Загрузка содержимого: "${path}"`);
+        console.log('Найдено:', dirs.length, 'папок,', files.length, 'файлов');
         
-        let contents = null;
-        
-        if (path === '/') {
-            // Корневая директория уже загружена
-            contents = rootContents;
-        } else {
-            // Ищем директорию в частях
-            contents = await findDirectoryInParts(path);
-        }
-        
-        if (!contents) {
-            console.log(`❌ Директория не найдена: "${path}"`);
-            showEmptyState('Папка не найдена');
-            showLoading(false);
-            return;
-        }
-        
-        // Кэшируем
-        cachedContents.set(path, contents);
+        // Сохраняем
+        currentDirs = dirs;
+        currentFiles = files;
         
         // Отображаем
-        displayContents(contents);
+        displayItems();
         
     } catch (error) {
-        console.error(`❌ Ошибка загрузки директории "${path}":`, error);
-        showError('Ошибка загрузки содержимого');
+        console.error('Ошибка загрузки директории:', error);
+        showError('Ошибка загрузки папки');
     }
     
     showLoading(false);
 }
 
-// Поиск директории в частях
-async function findDirectoryInParts(path) {
-    if (!indexData || !indexData.parts) {
-        return null;
-    }
+// Отображение элементов
+function displayItems() {
+    const container = document.getElementById('fileList');
     
-    // Проходим по всем частям
-    for (const [partNum, partInfo] of Object.entries(indexData.parts)) {
-        // Проверяем, есть ли этот путь в части
-        if (partInfo.paths && partInfo.paths.includes(path)) {
-            console.log(`🔍 Директория "${path}" найдена в части ${partNum}`);
-            
-            // Загружаем часть
-            const partData = await loadPart(partNum);
-            if (!partData) continue;
-            
-            // Ищем нашу директорию в части
-            for (const dirData of partData) {
-                if (dirData.path === path) {
-                    return dirData;
-                }
-            }
-        }
-    }
-    
-    // Если не нашли в частях, проверяем корень
-    if (path === '/' && rootContents) {
-        return rootContents;
-    }
-    
-    return null;
-}
-
-// Загрузка части
-async function loadPart(partNum) {
-    const paddedNum = partNum.toString().padStart(3, '0');
-    const cacheKey = `part_${paddedNum}`;
-    
-    // Проверяем кэш
-    if (cachedContents.has(cacheKey)) {
-        return cachedContents.get(cacheKey);
-    }
-    
-    try {
-        const response = await fetch(`data/parts/part_${paddedNum}.json?t=${Date.now()}`);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        
-        const data = await response.json();
-        
-        // Кэшируем
-        cachedContents.set(cacheKey, data);
-        
-        return data;
-        
-    } catch (error) {
-        console.error(`❌ Ошибка загрузки части ${partNum}:`, error);
-        return null;
-    }
-}
-
-// Отобразить содержимое
-function displayContents(contents) {
-    if (!contents) {
-        showEmptyState('Ошибка загрузки данных');
-        return;
-    }
-    
-    let dirs = contents.dirs || [];
-    let files = contents.files || [];
-    
-    console.log(`📊 Содержимое: ${dirs.length} папок, ${files.length} файлов`);
+    let dirsToShow = [...currentDirs];
+    let filesToShow = [...currentFiles];
     
     // Применяем поиск
     if (searchQuery) {
         const query = searchQuery.toLowerCase();
-        dirs = dirs.filter(dir => dir.n.toLowerCase().includes(query));
-        files = files.filter(file => file.n.toLowerCase().includes(query));
-        console.log(`🔍 После поиска: ${dirs.length} папок, ${files.length} файлов`);
+        dirsToShow = dirsToShow.filter(name => name.toLowerCase().includes(query));
+        filesToShow = filesToShow.filter(file => file.n.toLowerCase().includes(query));
     }
     
-    // Сортируем
-    dirs.sort((a, b) => a.n.localeCompare(b.n));
-    files.sort((a, b) => a.n.localeCompare(b.n));
-    
-    // Отображаем
-    const fileList = elements.fileList;
-    
-    if (dirs.length === 0 && files.length === 0) {
+    if (dirsToShow.length === 0 && filesToShow.length === 0) {
         const message = searchQuery 
-            ? `По запросу "${searchQuery}" ничего не найдено` 
-            : 'Эта папка пуста';
-        
-        showEmptyState(message);
-        updateCurrentStats(0, 0);
+            ? `"${searchQuery}" не найдено` 
+            : 'Папка пуста';
+        container.innerHTML = `<div class="empty">${message}</div>`;
         return;
     }
     
-    // Очищаем список
-    fileList.innerHTML = '';
+    // Создаем HTML
+    let html = '';
     
-    // Добавляем папки
-    dirs.forEach(dir => {
-        fileList.appendChild(createDirectoryElement(dir));
+    // Папки
+    dirsToShow.forEach(dirName => {
+        html += `
+            <div class="file-item" onclick="enterDir('${escape(dirName)}')">
+                <div class="file-icon">📁</div>
+                <div class="file-name">${escapeHtml(dirName)}</div>
+                <div class="dir-arrow">›</div>
+            </div>
+        `;
     });
     
-    // Добавляем файлы
-    files.forEach(file => {
-        fileList.appendChild(createFileElement(file));
+    // Файлы
+    filesToShow.forEach(file => {
+        const icon = getFileIcon(file.n, file.e);
+        const size = file.s ? formatSize(file.s) : '';
+        
+        html += `
+            <div class="file-item" onclick="showFile('${escape(JSON.stringify(file))}')">
+                <div class="file-icon">${icon}</div>
+                <div class="file-name">${escapeHtml(file.n)}</div>
+                ${size ? `<div class="file-size">${size}</div>` : ''}
+            </div>
+        `;
     });
     
-    // Обновляем статистику
-    updateCurrentStats(dirs.length, files.length);
+    container.innerHTML = html;
 }
 
-// Создать элемент папки
-function createDirectoryElement(dir) {
-    const div = document.createElement('div');
-    div.className = 'file-item';
-    div.innerHTML = `
-        <div class="file-icon">📁</div>
-        <div class="file-info">
-            <div class="file-name">${escapeHtml(dir.n)}</div>
-            <div class="file-meta">
-                <span class="file-type">Папка</span>
-            </div>
-        </div>
-        <div class="dir-arrow">›</div>
-    `;
+// Вход в директорию
+function enterDir(dirName) {
+    history.push(currentPath);
     
-    div.onclick = () => {
-        // Определяем новый путь
-        let newPath = '';
-        if (currentPath === '/') {
-            newPath = `/${dir.n}`;
-        } else {
-            newPath = `${currentPath}/${dir.n}`;
-        }
+    let newPath = '';
+    if (currentPath === '/') {
+        newPath = `/${dirName}`;
+    } else {
+        newPath = `${currentPath}/${dirName}`;
+    }
+    
+    searchQuery = '';
+    document.getElementById('search').value = '';
+    
+    loadDirectory(newPath);
+}
+
+// Показать информацию о файле
+function showFile(fileStr) {
+    try {
+        const file = JSON.parse(fileStr);
+        const size = file.s ? formatSize(file.s) : '';
+        const date = file.m ? new Date(file.m * 1000).toLocaleDateString('ru-RU') : '';
+        const path = currentPath === '/' ? '/' : currentPath;
         
-        // Добавляем в историю
-        history.push(currentPath);
+        let message = `📄 ${file.n}`;
+        if (size) message += `\n📦 ${size}`;
+        if (date) message += `\n📅 ${date}`;
+        message += `\n📁 ${path}`;
         
-        // Сбрасываем поиск
+        tg.showAlert(message);
+    } catch (e) {
+        console.error('Ошибка показа файла:', e);
+    }
+}
+
+// Навигация
+function goHome() {
+    history = [];
+    searchQuery = '';
+    document.getElementById('search').value = '';
+    loadDirectory('/');
+}
+
+function goBack() {
+    if (history.length > 0) {
+        const prevPath = history.pop();
         searchQuery = '';
-        elements.searchInput.value = '';
-        
-        // Переходим
-        showDirectory(newPath);
-    };
-    
-    return div;
+        document.getElementById('search').value = '';
+        loadDirectory(prevPath);
+    }
 }
 
-// Создать элемент файла
-function createFileElement(file) {
-    const div = document.createElement('div');
-    div.className = 'file-item';
-    
-    const icon = getFileIcon(file.n, file.e);
-    const size = formatSize(file.s);
-    const date = formatDate(file.m);
-    
-    div.innerHTML = `
-        <div class="file-icon">${icon}</div>
-        <div class="file-info">
-            <div class="file-name">${escapeHtml(file.n)}</div>
-            <div class="file-meta">
-                <span class="file-size">${size}</span>
-                <span class="file-date">${date}</span>
-            </div>
-        </div>
-    `;
-    
-    div.onclick = () => {
-        showFileInfo(file);
-    };
-    
-    return div;
+function doSearch() {
+    searchQuery = document.getElementById('search').value.trim();
+    displayItems();
+}
+
+function searchKey(e) {
+    if (e.key === 'Enter') doSearch();
 }
 
 // Вспомогательные функции
+function updateStats() {
+    if (!fileData) return;
+    
+    const statsEl = document.getElementById('stats');
+    statsEl.textContent = `${fileData.total_files}ф/${fileData.total_dirs}п`;
+}
+
 function getFileIcon(filename, ext) {
     const name = filename.toLowerCase();
     
     if (ext === 'ecfg' || name.endsWith('.ecfg')) return '⚙️';
-    if (/(jpg|jpeg|png|gif|webp|svg|bmp)$/i.test(name)) return '🖼️';
-    if (/(mp3|wav|ogg|flac|m4a)$/i.test(name)) return '🎵';
-    if (/(mp4|avi|mov|mkv|wmv|flv)$/i.test(name)) return '🎬';
+    if (/(jpg|jpeg|png|gif|webp)$/i.test(name)) return '🖼️';
+    if (/(mp3|wav|ogg|flac)$/i.test(name)) return '🎵';
+    if (/(mp4|avi|mov|mkv)$/i.test(name)) return '🎬';
     if (name.endsWith('.pdf')) return '📕';
-    if (/(zip|rar|7z|tar|gz|bz2|xz)$/i.test(name)) return '📦';
-    if (/(txt|md|ini|cfg|json|xml|yml|yaml|log)$/i.test(name)) return '📝';
-    if (/(js|ts|py|java|cpp|c|h|html|css|php|rb|go|rs)$/i.test(name)) return '📄';
-    if (/(doc|docx|xls|xlsx|ppt|pptx)$/i.test(name)) return '📎';
+    if (/(zip|rar|7z|tar|gz)$/i.test(name)) return '📦';
     
     return '📄';
 }
 
 function formatSize(bytes) {
-    if (!bytes) return '0 Б';
+    if (!bytes) return '';
     
     const units = ['Б', 'КБ', 'МБ', 'ГБ'];
     let size = bytes;
@@ -334,171 +245,31 @@ function formatSize(bytes) {
     return `${size.toFixed(unit > 0 ? 1 : 0)} ${units[unit]}`;
 }
 
-function formatDate(timestamp) {
-    if (!timestamp) return '';
-    
-    const date = new Date(timestamp * 1000);
-    const now = new Date();
-    const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
-    
-    if (diffDays === 0) return 'сегодня';
-    if (diffDays === 1) return 'вчера';
-    if (diffDays < 7) return `${diffDays} дн. назад`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)} нед. назад`;
-    
-    return date.toLocaleDateString('ru-RU', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
-}
-
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-// Обновление UI
-function updatePathDisplay() {
-    elements.currentPath.textContent = currentPath;
-}
-
-function updateBreadcrumb() {
-    const breadcrumb = elements.breadcrumb;
-    
-    if (currentPath === '/') {
-        breadcrumb.innerHTML = '<span class="breadcrumb-item" onclick="goHome()">Корень</span>';
-        return;
-    }
-    
-    const parts = currentPath.substring(1).split('/');
-    let html = '<span class="breadcrumb-item" onclick="goHome()">Корень</span>';
-    let current = '';
-    
-    parts.forEach((part, index) => {
-        current += '/' + part;
-        
-        if (index < parts.length - 1) {
-            html += '<span class="breadcrumb-sep"> / </span>';
-            html += `<span class="breadcrumb-item" onclick="navigateTo('${current}')">${escapeHtml(part)}</span>`;
-        } else {
-            html += '<span class="breadcrumb-sep"> / </span>';
-            html += `<span class="breadcrumb-current">${escapeHtml(part)}</span>`;
-        }
-    });
-    
-    breadcrumb.innerHTML = html;
-}
-
-function navigateTo(path) {
-    // Находим путь в истории
-    const pathIndex = history.indexOf(path);
-    if (pathIndex !== -1) {
-        history = history.slice(0, pathIndex);
-    } else {
-        history = [currentPath];
-    }
-    
-    searchQuery = '';
-    elements.searchInput.value = '';
-    showDirectory(path);
-}
-
-function updateTotalStats() {
-    if (!indexData) return;
-    
-    elements.totalStats.textContent = 
-        `${indexData.total_files.toLocaleString()} файлов, ${indexData.total_dirs.toLocaleString()} папок`;
-}
-
-function updateCurrentStats(dirs, files) {
-    const total = dirs + files;
-    elements.currentStats.textContent = 
-        `${total} элементов (${dirs} папок, ${files} файлов)`;
-}
-
-function updateBackButton() {
-    if (history.length > 0) {
-        tg.BackButton.show();
-    } else {
-        tg.BackButton.hide();
-    }
-}
-
-function showFileInfo(file) {
-    const size = formatSize(file.s);
-    const date = formatDate(file.m);
-    const path = currentPath === '/' ? '/' : currentPath;
-    const ext = file.e ? `\n🔤 Расширение: .${file.e}` : '';
-    
-    const message = `📄 ${file.n}\n\n📦 Размер: ${size}${ext}\n📁 Путь: ${path}\n📅 Изменен: ${date}`;
-    
-    tg.showAlert(message);
-}
-
 function showLoading(show) {
-    elements.loading.style.display = show ? 'flex' : 'none';
-    elements.fileList.style.display = show ? 'none' : 'block';
-}
-
-function showEmptyState(message) {
-    elements.fileList.innerHTML = `
-        <div class="empty-state">
-            ${searchQuery ? '🔍' : '📂'} ${message}
-        </div>
-    `;
+    document.getElementById('loading').style.display = show ? 'block' : 'none';
+    document.getElementById('fileList').style.display = show ? 'none' : 'block';
 }
 
 function showError(message) {
-    elements.fileList.innerHTML = `
-        <div class="error">
-            ❌ ${message}
-        </div>
+    document.getElementById('fileList').innerHTML = `
+        <div class="error">❌ ${message}</div>
     `;
 }
 
-// Навигация
-function goHome() {
-    history = [];
-    searchQuery = '';
-    elements.searchInput.value = '';
-    showDirectory('/');
+function escapeHtml(text) {
+    return text.replace(/[&<>]/g, c => 
+        ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
 }
 
-function goBack() {
-    if (history.length > 0) {
-        const prevPath = history.pop();
-        searchQuery = '';
-        elements.searchInput.value = '';
-        showDirectory(prevPath);
-    }
-}
-
-function doSearch() {
-    searchQuery = elements.searchInput.value.trim();
-    loadDirectoryContents(currentPath);
-}
-
-function handleSearchKey(event) {
-    if (event.key === 'Enter') {
-        doSearch();
-    }
+function escape(text) {
+    return text.replace(/'/g, "\\'").replace(/"/g, '\\"');
 }
 
 // Telegram Back Button
 tg.BackButton.onClick(goBack);
 
-// Инициализация
+// Запуск
 document.addEventListener('DOMContentLoaded', () => {
     tg.ready();
-    console.log('🚀 Файловый менеджер запущен');
-    loadData();
-    
-    // Экспортируем функции для HTML
-    window.goHome = goHome;
-    window.goBack = goBack;
-    window.doSearch = doSearch;
-    window.navigateTo = navigateTo;
-    window.handleSearchKey = handleSearchKey;
+    init();
 });
