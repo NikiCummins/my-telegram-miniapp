@@ -3,203 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📁 Файловый менеджер</title>
+    <title>📁 ФМ</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
-            background: #f0f2f5; 
-            color: #333; 
+            background: #f5f5f5; 
             font-size: 14px; 
-            line-height: 1.4; 
         }
-        .container { 
-            max-width: 100%; 
-            min-height: 100vh; 
-            background: white; 
+        .container { max-width: 100%; }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 15px;
         }
-        .header { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            color: white; 
-            padding: 15px 20px; 
+        .header h1 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
-        .header h1 { 
-            font-size: 18px; 
-            font-weight: 600; 
-            margin-bottom: 5px; 
+        .stats {
+            font-size: 12px;
+            opacity: 0.9;
         }
-        .header-stats { 
-            font-size: 13px; 
-            opacity: 0.9; 
+        
+        /* Path */
+        .path {
+            background: white;
+            padding: 8px 15px;
+            border-bottom: 1px solid #eee;
+            font-family: monospace;
+            font-size: 13px;
+            word-break: break-all;
         }
-        .path-bar { 
-            padding: 12px 20px; 
-            background: #f8f9fa; 
-            border-bottom: 1px solid #e9ecef; 
+        
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 8px;
+            padding: 10px 15px;
+            background: white;
+            border-bottom: 1px solid #eee;
         }
-        .current-path { 
-            font-family: 'SF Mono', monospace; 
-            font-size: 13px; 
-            color: #555; 
-            word-break: break-all; 
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
         }
-        .controls { 
-            padding: 12px 20px; 
-            display: flex; 
-            gap: 10px; 
-            border-bottom: 1px solid #e9ecef; 
+        .search {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
         }
-        .btn { 
-            padding: 8px 15px; 
-            border: none; 
-            border-radius: 8px; 
-            background: #667eea; 
-            color: white; 
-            font-size: 13px; 
-            font-weight: 500; 
-            cursor: pointer; 
-            transition: background 0.2s; 
+        
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: #666;
         }
-        .btn:hover { background: #5a67d8; }
-        .search-box { 
-            flex: 1; 
-            display: flex; 
-            gap: 8px; 
+        
+        /* File List */
+        .file-list {
+            background: white;
+            min-height: 300px;
         }
-        .search-input { 
-            flex: 1; 
-            padding: 8px 12px; 
-            border: 1px solid #ddd; 
-            border-radius: 8px; 
-            font-size: 13px; 
-            outline: none; 
+        .file-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
         }
-        .search-input:focus { 
-            border-color: #667eea; 
-            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1); 
+        .file-item:hover {
+            background: #f8f9fa;
         }
-        .breadcrumb { 
-            padding: 10px 20px; 
-            background: white; 
-            border-bottom: 1px solid #e9ecef; 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 5px; 
-            font-size: 13px; 
+        .file-icon {
+            font-size: 16px;
+            width: 30px;
+            text-align: center;
         }
-        .breadcrumb-item { 
-            color: #667eea; 
-            cursor: pointer; 
-            padding: 2px 6px; 
-            border-radius: 4px; 
+        .file-name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .breadcrumb-item:hover { 
-            background: #e3f2fd; 
-            text-decoration: underline; 
+        .file-size {
+            color: #666;
+            font-size: 12px;
+            margin-left: 10px;
         }
-        .breadcrumb-sep { 
-            color: #999; 
+        .dir-arrow {
+            color: #999;
+            margin-left: 10px;
         }
-        .breadcrumb-current { 
-            color: #333; 
-            font-weight: 500; 
+        
+        /* Empty */
+        .empty {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-style: italic;
         }
-        .loading { 
-            display: none; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 60px 20px; 
-            text-align: center; 
-            color: #666; 
-        }
-        .spinner { 
-            width: 30px; 
-            height: 30px; 
-            border: 3px solid #f3f3f3; 
-            border-top: 3px solid #667eea; 
-            border-radius: 50%; 
-            animation: spin 1s linear infinite; 
-            margin-bottom: 15px; 
-        }
-        @keyframes spin { 
-            0% { transform: rotate(0deg); } 
-            100% { transform: rotate(360deg); } 
-        }
-        .content { 
-            min-height: 300px; 
-            max-height: 60vh; 
-            overflow-y: auto; 
-        }
-        .empty-state { 
-            text-align: center; 
-            padding: 60px 20px; 
-            color: #666; 
-            font-style: italic; 
-        }
-        .file-list { 
-            padding: 5px 0; 
-        }
-        .file-item { 
-            display: flex; 
-            align-items: center; 
-            padding: 12px 20px; 
-            border-bottom: 1px solid #f0f0f0; 
-            cursor: pointer; 
-            transition: background 0.2s; 
-        }
-        .file-item:hover { background: #f8f9fa; }
-        .file-icon { 
-            font-size: 18px; 
-            width: 30px; 
-            text-align: center; 
-            flex-shrink: 0; 
-        }
-        .file-info { 
-            flex: 1; 
-            min-width: 0; 
-        }
-        .file-name { 
-            font-weight: 500; 
-            color: #333; 
-            white-space: nowrap; 
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-            margin-bottom: 3px; 
-        }
-        .file-meta { 
-            display: flex; 
-            gap: 12px; 
-            font-size: 12px; 
-            color: #666; 
-        }
-        .file-size { 
-            color: #667eea; 
-            font-weight: 500; 
-        }
-        .file-date { 
-            color: #888; 
-        }
-        .dir-arrow { 
-            color: #999; 
-            font-size: 16px; 
-            padding-left: 10px; 
-        }
-        .stats-bar { 
-            padding: 10px 20px; 
-            background: #f8f9fa; 
-            border-top: 1px solid #e9ecef; 
-            text-align: center; 
-            font-size: 13px; 
-            color: #666; 
-        }
-        .error { 
-            color: #dc3545; 
-            background: #f8d7da; 
-            padding: 20px; 
-            margin: 20px; 
-            border-radius: 8px; 
-            text-align: center; 
+        
+        /* Error */
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #dc3545;
+            background: #f8d7da;
+            margin: 20px;
+            border-radius: 8px;
         }
     </style>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -207,40 +131,23 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📁 Файловый менеджер</h1>
-            <div class="header-stats" id="totalStats">Загрузка...</div>
+            <h1>📁 Файлы</h1>
+            <div class="stats" id="stats">0/0</div>
         </div>
         
-        <div class="path-bar">
-            <div class="current-path" id="currentPath">/</div>
-        </div>
-        
-        <div class="breadcrumb" id="breadcrumb">
-            <span class="breadcrumb-item" onclick="goHome()">Корень</span>
-        </div>
+        <div class="path" id="currentPath">/</div>
         
         <div class="controls">
             <button class="btn" onclick="goHome()">🏠</button>
             <button class="btn" onclick="goBack()">←</button>
-            <div class="search-box">
-                <input type="text" class="search-input" id="searchInput" placeholder="Поиск файлов..." onkeypress="handleSearchKey(event)">
-                <button class="btn" onclick="doSearch()">🔍</button>
-            </div>
+            <input type="text" class="search" id="search" placeholder="Поиск..." onkeypress="searchKey(event)">
+            <button class="btn" onclick="doSearch()">🔍</button>
         </div>
         
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <div>Загрузка...</div>
-        </div>
+        <div class="loading" id="loading">Загрузка...</div>
         
-        <div class="content">
-            <div class="file-list" id="fileList">
-                <!-- Файлы будут здесь -->
-            </div>
-        </div>
-        
-        <div class="stats-bar" id="currentStats">
-            0 элементов
+        <div class="file-list" id="fileList">
+            <!-- Содержимое -->
         </div>
     </div>
     
