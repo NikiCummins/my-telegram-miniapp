@@ -1,0 +1,109 @@
+{
+  "folder_name": "CM1881",
+  "folder_path": "F:\\SERVER\\- ECFG ECM -\\CM1881",
+  "total_items": 12,
+  "items": [
+    {
+      "name": "ABC",
+      "path": "ABC",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "AFS",
+      "path": "AFS",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "ABC_CM1881_51.0.3.7_2016-01-29.ecfg",
+      "path": "ABC\\ABC_CM1881_51.0.3.7_2016-01-29.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 955529,
+      "modified": 1465948266.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881B_90.40.30.3_2016-08-03.ecfg",
+      "path": "AFS\\AFS_CM1881B_90.40.30.3_2016-08-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1331866,
+      "modified": 1470703960.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881B_90.50.50.3_2016-11-08.ecfg",
+      "path": "AFS\\AFS_CM1881B_90.50.50.3_2016-11-08.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1534523,
+      "modified": 1479512948.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881B_90.50.50.5_2017-01-27.ecfg",
+      "path": "AFS\\AFS_CM1881B_90.50.50.5_2017-01-27.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1633022,
+      "modified": 1486525008.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881B_90.50.50.7_2017-03-31.ecfg",
+      "path": "AFS\\AFS_CM1881B_90.50.50.7_2017-03-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1656778,
+      "modified": 1492635334.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881B_90.60.50.13_2018-05-24.ecfg",
+      "path": "AFS\\AFS_CM1881B_90.60.50.13_2018-05-24.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1824295,
+      "modified": 1527212830.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881B_90.60.50.15_2018-09-27.ecfg",
+      "path": "AFS\\AFS_CM1881B_90.60.50.15_2018-09-27.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1824363,
+      "modified": 1538154808.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881B_90.60.50.2_2017-06-16.ecfg",
+      "path": "AFS\\AFS_CM1881B_90.60.50.2_2017-06-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1657478,
+      "modified": 1497878160.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881B_90.60.50.3_2017-08-23.ecfg",
+      "path": "AFS\\AFS_CM1881B_90.60.50.3_2017-08-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1675868,
+      "modified": 1507044280.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AFS_CM1881_51.0.3.7_2016-03-17.ecfg",
+      "path": "AFS\\AFS_CM1881_51.0.3.7_2016-03-17.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1256937,
+      "modified": 1458244694.0,
+      "extension": ".ecfg"
+    }
+  ]
+}

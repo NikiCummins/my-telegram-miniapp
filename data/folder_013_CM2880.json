@@ -1,0 +1,418 @@
+{
+  "folder_name": "CM2880",
+  "folder_path": "F:\\SERVER\\- ECFG ECM -\\CM2880",
+  "total_items": 47,
+  "items": [
+    {
+      "name": "BDS",
+      "path": "BDS",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BFE",
+      "path": "BFE",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BFG",
+      "path": "BFG",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BGE",
+      "path": "BGE",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.11_2016-05-09.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.11_2016-05-09.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13124497,
+      "modified": 1471047902.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.13_2016-09-23.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.13_2016-09-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13435652,
+      "modified": 1503410592.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.13_2016-09-27.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.13_2016-09-27.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13435652,
+      "modified": 1481256064.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.15_2016-11-23.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.15_2016-11-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13462873,
+      "modified": 1487555222.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.18_2017-08-29.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.18_2017-08-29.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13880737,
+      "modified": 1515159346.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.19_2018-01-01.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.19_2018-01-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13880921,
+      "modified": 1514808458.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.22_2018-06-12.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.22_2018-06-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 14165296,
+      "modified": 1528755842.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.22_2018-06-15.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.22_2018-06-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 14165296,
+      "modified": 1529012530.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.22_2018-06-15_1.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.22_2018-06-15_1.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 14165296,
+      "modified": 1535363180.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.2_2014-12-23.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.2_2014-12-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12923181,
+      "modified": 1433981288.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.5_2015-06-08.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.5_2015-06-08.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13005023,
+      "modified": 1459406528.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.1.0.6_2015-10-12.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.1.0.6_2015-10-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13086398,
+      "modified": 1447507616.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_5.99.1.0_2013-12-12.ecfg",
+      "path": "BDS\\BDS_CM2880A_5.99.1.0_2013-12-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11951399,
+      "modified": 1411321822.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_6.1.0.2_2014-12-23.ecfg",
+      "path": "BDS\\BDS_CM2880A_6.1.0.2_2014-12-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12923187,
+      "modified": 1426896422.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_8.1.0.10_2016-05-18.ecfg",
+      "path": "BDS\\BDS_CM2880A_8.1.0.10_2016-05-18.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13124497,
+      "modified": 1468538924.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_8.1.0.13_2016-09-23.ecfg",
+      "path": "BDS\\BDS_CM2880A_8.1.0.13_2016-09-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13435652,
+      "modified": 1477010200.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_8.1.0.15_2016-11-23.ecfg",
+      "path": "BDS\\BDS_CM2880A_8.1.0.15_2016-11-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13462873,
+      "modified": 1484098652.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_8.1.0.4_2015-05-31.ecfg",
+      "path": "BDS\\BDS_CM2880A_8.1.0.4_2015-05-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13005023,
+      "modified": 1442026676.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_8.1.0.7_2015-11-16.ecfg",
+      "path": "BDS\\BDS_CM2880A_8.1.0.7_2015-11-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13104333,
+      "modified": 1452756456.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880A_8.1.0.9_2016-01-05.ecfg",
+      "path": "BDS\\BDS_CM2880A_8.1.0.9_2016-01-05.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13124518,
+      "modified": 1470440904.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880D_8.0.0.2_2014-02-17.ecfg",
+      "path": "BDS\\BDS_CM2880D_8.0.0.2_2014-02-17.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11986338,
+      "modified": 1397001000.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880D_8.0.0.3_2014-03-31.ecfg",
+      "path": "BDS\\BDS_CM2880D_8.0.0.3_2014-03-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11986338,
+      "modified": 1398727758.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880D_8.0.0.4_2014-06-26.ecfg",
+      "path": "BDS\\BDS_CM2880D_8.0.0.4_2014-06-26.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11989147,
+      "modified": 1411321838.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880D_8.0.0.5_2015-04-09.ecfg",
+      "path": "BDS\\BDS_CM2880D_8.0.0.5_2015-04-09.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12131873,
+      "modified": 1429920644.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880D_8.0.0.7_2015-06-08.ecfg",
+      "path": "BDS\\BDS_CM2880D_8.0.0.7_2015-06-08.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12158632,
+      "modified": 1436403778.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880_5.0.0.3_2012-11-21.ecfg",
+      "path": "BDS\\BDS_CM2880_5.0.0.3_2012-11-21.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11347186,
+      "modified": 1411358608.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880_5.0.0.6_2013-02-12.ecfg",
+      "path": "BDS\\BDS_CM2880_5.0.0.6_2013-02-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11521815,
+      "modified": 1411358618.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880_6.0.0.6_2013-05-21.ecfg",
+      "path": "BDS\\BDS_CM2880_6.0.0.6_2013-05-21.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11836453,
+      "modified": 1411358628.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880_7.0.0.4_2013-10-14.ecfg",
+      "path": "BDS\\BDS_CM2880_7.0.0.4_2013-10-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11942471,
+      "modified": 1383694202.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDS_CM2880_7.0.0.5_2013-12-11.ecfg",
+      "path": "BDS\\BDS_CM2880_7.0.0.5_2013-12-11.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11968982,
+      "modified": 1411358646.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFE_CM2880_32.0.99.2_2012-01-13.ecfg",
+      "path": "BFE\\BFE_CM2880_32.0.99.2_2012-01-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10962561,
+      "modified": 1411358678.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFG_CM2880A_32.0.1.12_2013-09-04.ecfg",
+      "path": "BFG\\BFG_CM2880A_32.0.1.12_2013-09-04.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10484299,
+      "modified": 1382053618.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFG_CM2880A_32.0.1.18_2013-12-15.ecfg",
+      "path": "BFG\\BFG_CM2880A_32.0.1.18_2013-12-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10627093,
+      "modified": 1390002556.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFG_CM2880A_32.0.1.20_2014-02-10.ecfg",
+      "path": "BFG\\BFG_CM2880A_32.0.1.20_2014-02-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10670502,
+      "modified": 1417821566.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFG_CM2880A_32.0.1.22_2014-07-24.ecfg",
+      "path": "BFG\\BFG_CM2880A_32.0.1.22_2014-07-24.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10747600,
+      "modified": 1412118424.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFG_CM2880A_32.0.1.28_2015-06-29.ecfg",
+      "path": "BFG\\BFG_CM2880A_32.0.1.28_2015-06-29.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11025593,
+      "modified": 1448068500.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFG_CM2880A_32.0.1.32_2016-01-31.ecfg",
+      "path": "BFG\\BFG_CM2880A_32.0.1.32_2016-01-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11069657,
+      "modified": 1464136822.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFG_CM2880A_32.0.1.32_2016-02-02.ecfg",
+      "path": "BFG\\BFG_CM2880A_32.0.1.32_2016-02-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11069657,
+      "modified": 1493853304.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BFG_CM2880C_32.0.1.20_2014-02-10.ecfg",
+      "path": "BFG\\BFG_CM2880C_32.0.1.20_2014-02-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10669017,
+      "modified": 1411322532.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BGE_CM2880B_32.0.0.16_2013-10-12.ecfg",
+      "path": "BGE\\BGE_CM2880B_32.0.0.16_2013-10-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13590796,
+      "modified": 1383607430.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BGE_CM2880B_32.0.0.20_2014-04-09.ecfg",
+      "path": "BGE\\BGE_CM2880B_32.0.0.20_2014-04-09.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 14007711,
+      "modified": 1411326368.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BGE_CM2880B_32.0.0.22_2014-09-29.ecfg",
+      "path": "BGE\\BGE_CM2880B_32.0.0.22_2014-09-29.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 14035422,
+      "modified": 1419638006.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BGE_CM2880B_32.0.0.28_2016-03-07.ecfg",
+      "path": "BGE\\BGE_CM2880B_32.0.0.28_2016-03-07.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 14364387,
+      "modified": 1473742876.0,
+      "extension": ".ecfg"
+    }
+  ]
+}

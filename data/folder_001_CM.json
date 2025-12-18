@@ -1,0 +1,22 @@
+{
+  "folder_name": "CM",
+  "folder_path": "F:\\SERVER\\- ECFG ECM -\\CM",
+  "total_items": 2,
+  "items": [
+    {
+      "name": "XXX",
+      "path": "XXX",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "XXX_CM_9.0.5.2_2004-03-16.ecfg",
+      "path": "XXX\\XXX_CM_9.0.5.2_2004-03-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 3812242,
+      "modified": 1290968654.0,
+      "extension": ".ecfg"
+    }
+  ]
+}

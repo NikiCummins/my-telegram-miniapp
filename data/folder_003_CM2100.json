@@ -1,0 +1,22 @@
+{
+  "folder_name": "CM2100",
+  "folder_path": "F:\\SERVER\\- ECFG ECM -\\CM2100",
+  "total_items": 2,
+  "items": [
+    {
+      "name": "XXX",
+      "path": "XXX",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "XXX_CM2100_15.1.0.4_1985-01-05.ecfg",
+      "path": "XXX\\XXX_CM2100_15.1.0.4_1985-01-05.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6942696,
+      "modified": 1290946060.0,
+      "extension": ".ecfg"
+    }
+  ]
+}

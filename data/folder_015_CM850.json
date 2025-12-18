@@ -1,0 +1,1000 @@
+{
+  "folder_name": "CM850",
+  "folder_path": "F:\\SERVER\\- ECFG ECM -\\CM850",
+  "total_items": 117,
+  "items": [
+    {
+      "name": "AAL",
+      "path": "AAL",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "AAM",
+      "path": "AAM",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "AAN",
+      "path": "AAN",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "AAO",
+      "path": "AAO",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "AAP",
+      "path": "AAP",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "AAQ",
+      "path": "AAQ",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "AAR",
+      "path": "AAR",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "ABC",
+      "path": "ABC",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BAC",
+      "path": "BAC",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BAJ",
+      "path": "BAJ",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BAK",
+      "path": "BAK",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BAL",
+      "path": "BAL",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BAO",
+      "path": "BAO",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BAQ",
+      "path": "BAQ",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BAY",
+      "path": "BAY",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BBA",
+      "path": "BBA",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "E2I",
+      "path": "E2I",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "P1I",
+      "path": "P1I",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "P2I",
+      "path": "P2I",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "XXX",
+      "path": "XXX",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "AAL_CM850_15.0.2.12_2006-12-05.ecfg",
+      "path": "AAL\\AAL_CM850_15.0.2.12_2006-12-05.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6790401,
+      "modified": 1172607638.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAL_CM850_18.0.8.2_2007-05-14.ecfg",
+      "path": "AAL\\AAL_CM850_18.0.8.2_2007-05-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7466169,
+      "modified": 1411315212.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAL_CM850_19.0.0.13_2008-08-20.ecfg",
+      "path": "AAL\\AAL_CM850_19.0.0.13_2008-08-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7657441,
+      "modified": 1411306540.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAL_CM850_19.0.0.22_2012-11-13.ecfg",
+      "path": "AAL\\AAL_CM850_19.0.0.22_2012-11-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 8059294,
+      "modified": 1411306536.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAM_CM850_15.0.2.10_2006-06-15.ecfg",
+      "path": "AAM\\AAM_CM850_15.0.2.10_2006-06-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2460628,
+      "modified": 1172607646.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAM_CM850_18.0.8.2_2007-05-14.ecfg",
+      "path": "AAM\\AAM_CM850_18.0.8.2_2007-05-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2722855,
+      "modified": 1411315250.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAM_CM850_19.0.0.13_2008-08-20.ecfg",
+      "path": "AAM\\AAM_CM850_19.0.0.13_2008-08-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2854585,
+      "modified": 1411310228.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAM_CM850_19.0.0.22_2012-11-13.ecfg",
+      "path": "AAM\\AAM_CM850_19.0.0.22_2012-11-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2973329,
+      "modified": 1411310228.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAN_CM850_12.0.2.1_2005-04-11.ecfg",
+      "path": "AAN\\AAN_CM850_12.0.2.1_2005-04-11.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5722636,
+      "modified": 1411351298.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAN_CM850_13.0.0.20_2005-06-09.ecfg",
+      "path": "AAN\\AAN_CM850_13.0.0.20_2005-06-09.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6081055,
+      "modified": 1212446614.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAN_CM850_18.0.7.2_2007-01-24.ecfg",
+      "path": "AAN\\AAN_CM850_18.0.7.2_2007-01-24.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7208571,
+      "modified": 1411351318.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAN_CM850_18.0.8.2_2007-05-14.ecfg",
+      "path": "AAN\\AAN_CM850_18.0.8.2_2007-05-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7260081,
+      "modified": 1192713356.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAN_CM850_19.0.0.13_2008-08-20.ecfg",
+      "path": "AAN\\AAN_CM850_19.0.0.13_2008-08-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7657441,
+      "modified": 1411306690.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAN_CM850_19.0.0.22_2012-11-13.ecfg",
+      "path": "AAN\\AAN_CM850_19.0.0.22_2012-11-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7837491,
+      "modified": 1411306682.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAN_CM850_19.0.0.25_2013-05-15.ecfg",
+      "path": "AAN\\AAN_CM850_19.0.0.25_2013-05-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7864167,
+      "modified": 1411306842.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAN_CM850_19.0.20.25_2014-04-08.ecfg",
+      "path": "AAN\\AAN_CM850_19.0.20.25_2014-04-08.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7873930,
+      "modified": 1411688354.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAO_CM850_12.0.1.2_2005-02-09.ecfg",
+      "path": "AAO\\AAO_CM850_12.0.1.2_2005-02-09.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1727342,
+      "modified": 1411351524.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAO_CM850_15.0.2.10_2006-06-15.ecfg",
+      "path": "AAO\\AAO_CM850_15.0.2.10_2006-06-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2391978,
+      "modified": 1172607672.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAO_CM850_19.0.0.13_2008-08-20.ecfg",
+      "path": "AAO\\AAO_CM850_19.0.0.13_2008-08-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2854585,
+      "modified": 1411307032.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAO_CM850_19.0.0.21_2012-06-14.ecfg",
+      "path": "AAO\\AAO_CM850_19.0.0.21_2012-06-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2897498,
+      "modified": 1363905648.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAO_CM850_19.0.0.22_2012-11-13.ecfg",
+      "path": "AAO\\AAO_CM850_19.0.0.22_2012-11-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2890909,
+      "modified": 1411307026.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAO_CM850_19.0.0.25_2013-05-15.ecfg",
+      "path": "AAO\\AAO_CM850_19.0.0.25_2013-05-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2926129,
+      "modified": 1411307106.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAO_CM850_19.0.20.25_2014-04-08.ecfg",
+      "path": "AAO\\AAO_CM850_19.0.20.25_2014-04-08.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2920038,
+      "modified": 1411688372.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAP_CM850_15.0.2.10_2006-06-16.ecfg",
+      "path": "AAP\\AAP_CM850_15.0.2.10_2006-06-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5754701,
+      "modified": 1411307404.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAP_CM850_15.0.2.9_2006-04-27.ecfg",
+      "path": "AAP\\AAP_CM850_15.0.2.9_2006-04-27.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5742171,
+      "modified": 1172607688.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAP_CM850_18.0.11.2_2007-09-24.ecfg",
+      "path": "AAP\\AAP_CM850_18.0.11.2_2007-09-24.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6662902,
+      "modified": 1220570948.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAP_CM850_18.0.8.2_2007-05-14.ecfg",
+      "path": "AAP\\AAP_CM850_18.0.8.2_2007-05-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6363085,
+      "modified": 1411307354.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAP_CM850_19.0.0.13_2008-09-12.ecfg",
+      "path": "AAP\\AAP_CM850_19.0.0.13_2008-09-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7665251,
+      "modified": 1411307284.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAP_CM850_19.0.0.21_2012-06-14.ecfg",
+      "path": "AAP\\AAP_CM850_19.0.0.21_2012-06-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7521587,
+      "modified": 1411307398.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAP_CM850_19.0.0.22_2013-06-20.ecfg",
+      "path": "AAP\\AAP_CM850_19.0.0.22_2013-06-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7522832,
+      "modified": 1411311032.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAP_CM850_19.0.0.23_2017-10-09.ecfg",
+      "path": "AAP\\AAP_CM850_19.0.0.23_2017-10-09.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7598333,
+      "modified": 1507822464.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAQ_CM850_15.0.2.10_2006-06-16.ecfg",
+      "path": "AAQ\\AAQ_CM850_15.0.2.10_2006-06-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 1954959,
+      "modified": 1411307568.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAQ_CM850_18.0.8.2_2007-05-14.ecfg",
+      "path": "AAQ\\AAQ_CM850_18.0.8.2_2007-05-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2647158,
+      "modified": 1411307524.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAQ_CM850_19.0.0.13_2008-08-20.ecfg",
+      "path": "AAQ\\AAQ_CM850_19.0.0.13_2008-08-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2854585,
+      "modified": 1411307468.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAQ_CM850_19.0.0.20_2012-06-01.ecfg",
+      "path": "AAQ\\AAQ_CM850_19.0.0.20_2012-06-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2980106,
+      "modified": 1411311164.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAQ_CM850_19.0.0.21_2012-06-14.ecfg",
+      "path": "AAQ\\AAQ_CM850_19.0.0.21_2012-06-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2980106,
+      "modified": 1416620366.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAQ_CM850_19.0.0.22_2013-06-20.ecfg",
+      "path": "AAQ\\AAQ_CM850_19.0.0.22_2013-06-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2898755,
+      "modified": 1411307444.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_12.0.1.2_2005-04-08.ecfg",
+      "path": "AAR\\AAR_CM850_12.0.1.2_2005-04-08.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5380406,
+      "modified": 1411351906.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_12.0.1.2_2005-04-11.ecfg",
+      "path": "AAR\\AAR_CM850_12.0.1.2_2005-04-11.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5380406,
+      "modified": 1411307710.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_12.0.1.3_2006-05-26.ecfg",
+      "path": "AAR\\AAR_CM850_12.0.1.3_2006-05-26.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5380406,
+      "modified": 1411307728.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_15.0.2.10_2006-06-15.ecfg",
+      "path": "AAR\\AAR_CM850_15.0.2.10_2006-06-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6034101,
+      "modified": 1411307734.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_15.0.2.6_2006-02-06.ecfg",
+      "path": "AAR\\AAR_CM850_15.0.2.6_2006-02-06.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5964545,
+      "modified": 1411351912.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_18.0.10.2_2007-12-13.ecfg",
+      "path": "AAR\\AAR_CM850_18.0.10.2_2007-12-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6809566,
+      "modified": 1411307786.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_18.0.8.2_2007-05-14.ecfg",
+      "path": "AAR\\AAR_CM850_18.0.8.2_2007-05-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6774478,
+      "modified": 1411351920.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_18.0.9.0_2007-05-29.ecfg",
+      "path": "AAR\\AAR_CM850_18.0.9.0_2007-05-29.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7010404,
+      "modified": 1411307780.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "AAR_CM850_19.0.0.13_2008-08-20.ecfg",
+      "path": "AAR\\AAR_CM850_19.0.0.13_2008-08-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7657441,
+      "modified": 1411307808.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "ABC_CM850_14.0.0.2_2005-06-13.ecfg",
+      "path": "ABC\\ABC_CM850_14.0.0.2_2005-06-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5642964,
+      "modified": 1323825610.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM850_1.0.6.12_2005-05-11.ecfg",
+      "path": "BAC\\BAC_CM850_1.0.6.12_2005-05-11.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5540970,
+      "modified": 1290951988.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAJ_CM850_15.0.2.9_2006-05-01.ecfg",
+      "path": "BAJ\\BAJ_CM850_15.0.2.9_2006-05-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5609350,
+      "modified": 1172607902.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAJ_CM850_18.0.8.2_2007-05-14.ecfg",
+      "path": "BAJ\\BAJ_CM850_18.0.8.2_2007-05-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6201341,
+      "modified": 1290949616.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAJ_CM850_19.0.0.13_2008-09-12.ecfg",
+      "path": "BAJ\\BAJ_CM850_19.0.0.13_2008-09-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7665251,
+      "modified": 1411308812.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAJ_CM850_19.0.0.21_2012-06-14.ecfg",
+      "path": "BAJ\\BAJ_CM850_19.0.0.21_2012-06-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7733926,
+      "modified": 1411353644.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAK_CM850_19.0.0.13_2008-09-12.ecfg",
+      "path": "BAK\\BAK_CM850_19.0.0.13_2008-09-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7665251,
+      "modified": 1411315232.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAK_CM850_19.0.0.21_2012-06-14.ecfg",
+      "path": "BAK\\BAK_CM850_19.0.0.21_2012-06-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7733926,
+      "modified": 1411315214.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAL_CM850_15.0.2.9_2006-04-28.ecfg",
+      "path": "BAL\\BAL_CM850_15.0.2.9_2006-04-28.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2011143,
+      "modified": 1172607912.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAL_CM850_19.0.0.13_2008-08-20.ecfg",
+      "path": "BAL\\BAL_CM850_19.0.0.13_2008-08-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2854585,
+      "modified": 1411315262.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAL_CM850_19.0.0.21_2012-06-14.ecfg",
+      "path": "BAL\\BAL_CM850_19.0.0.21_2012-06-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 2980106,
+      "modified": 1411315254.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAO_CM850_18.1.0.12_2010-10-05.ecfg",
+      "path": "BAO\\BAO_CM850_18.1.0.12_2010-10-05.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6232467,
+      "modified": 1290946046.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAO_CM850_18.1.0.20_2011-08-26.ecfg",
+      "path": "BAO\\BAO_CM850_18.1.0.20_2011-08-26.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6428843,
+      "modified": 1333572742.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAO_CM850_18.1.0.8_2009-08-11.ecfg",
+      "path": "BAO\\BAO_CM850_18.1.0.8_2009-08-11.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5793457,
+      "modified": 1290946038.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAQ_CM850_15.1.0.7_1985-01-03.ecfg",
+      "path": "BAQ\\BAQ_CM850_15.1.0.7_1985-01-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5901960,
+      "modified": 1366765976.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAQ_CM850_18.1.0.20_2011-08-26.ecfg",
+      "path": "BAQ\\BAQ_CM850_18.1.0.20_2011-08-26.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6612453,
+      "modified": 1333073828.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAQ_CM850_18.1.0.26_2012-02-17.ecfg",
+      "path": "BAQ\\BAQ_CM850_18.1.0.26_2012-02-17.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6613481,
+      "modified": 1337200900.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAQ_CM850_18.1.0.8_2009-08-11.ecfg",
+      "path": "BAQ\\BAQ_CM850_18.1.0.8_2009-08-11.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5793457,
+      "modified": 1290946052.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAY_CM850_19.0.0.10_2011-05-13.ecfg",
+      "path": "BAY\\BAY_CM850_19.0.0.10_2011-05-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 4886682,
+      "modified": 1411312540.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAY_CM850_19.0.0.11_2012-06-07.ecfg",
+      "path": "BAY\\BAY_CM850_19.0.0.11_2012-06-07.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5101676,
+      "modified": 1411312530.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAY_CM850_19.0.0.1_2015-05-04.ecfg",
+      "path": "BAY\\BAY_CM850_19.0.0.1_2015-05-04.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5131925,
+      "modified": 1444968490.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAY_CM850_19.0.0.3_2017-10-31.ecfg",
+      "path": "BAY\\BAY_CM850_19.0.0.3_2017-10-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5215917,
+      "modified": 1509565078.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAY_CM850_19.0.0.7_2010-03-01.ecfg",
+      "path": "BAY\\BAY_CM850_19.0.0.7_2010-03-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5362278,
+      "modified": 1299540654.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBA_CM850_19.0.0.10_2011-05-13.ecfg",
+      "path": "BBA\\BBA_CM850_19.0.0.10_2011-05-13.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5025425,
+      "modified": 1411323632.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBA_CM850_19.0.0.1_2015-05-04.ecfg",
+      "path": "BBA\\BBA_CM850_19.0.0.1_2015-05-04.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5277795,
+      "modified": 1453772466.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBA_CM850_19.0.0.3_2017-10-31.ecfg",
+      "path": "BBA\\BBA_CM850_19.0.0.3_2017-10-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5215917,
+      "modified": 1515177292.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBA_CM850_19.0.0.4_2007-10-31.ecfg",
+      "path": "BBA\\BBA_CM850_19.0.0.4_2007-10-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5215240,
+      "modified": 1290949670.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "E2I_CM850_11.1.0.18_1985-01-07.ecfg",
+      "path": "E2I\\E2I_CM850_11.1.0.18_1985-01-07.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5874405,
+      "modified": 1290945144.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "E2I_CM850_16.1.0.24_2011-03-15.ecfg",
+      "path": "E2I\\E2I_CM850_16.1.0.24_2011-03-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7563163,
+      "modified": 1317462224.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "E2I_CM850_16.1.0.25_2012-09-03.ecfg",
+      "path": "E2I\\E2I_CM850_16.1.0.25_2012-09-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7563776,
+      "modified": 1349842192.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "P1I_CM850_11.1.0.18_1985-01-07.ecfg",
+      "path": "P1I\\P1I_CM850_11.1.0.18_1985-01-07.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5874405,
+      "modified": 1290945618.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "P1I_CM850_16.1.0.24_2011-03-15.ecfg",
+      "path": "P1I\\P1I_CM850_16.1.0.24_2011-03-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7563163,
+      "modified": 1322712468.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "P1I_CM850_16.1.0.25_2012-09-03.ecfg",
+      "path": "P1I\\P1I_CM850_16.1.0.25_2012-09-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7563776,
+      "modified": 1349842194.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "P2I_CM850_16.1.0.20_2009-04-16.ecfg",
+      "path": "P2I\\P2I_CM850_16.1.0.20_2009-04-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7437071,
+      "modified": 1290945194.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "P2I_CM850_16.1.0.21_2009-12-18.ecfg",
+      "path": "P2I\\P2I_CM850_16.1.0.21_2009-12-18.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7583910,
+      "modified": 1309390624.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "P2I_CM850_16.1.0.24_2011-03-15.ecfg",
+      "path": "P2I\\P2I_CM850_16.1.0.24_2011-03-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7563163,
+      "modified": 1322712474.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "P2I_CM850_16.1.0.25_2012-09-03.ecfg",
+      "path": "P2I\\P2I_CM850_16.1.0.25_2012-09-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7563776,
+      "modified": 1349842196.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_11.0.0.6_1985-01-06.ecfg",
+      "path": "XXX\\XXX_CM850_11.0.0.6_1985-01-06.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5694530,
+      "modified": 0.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_11.0.0.7_1985-01-07.ecfg",
+      "path": "XXX\\XXX_CM850_11.0.0.7_1985-01-07.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5529878,
+      "modified": 1290965054.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_11.1.0.12_1985-01-02.ecfg",
+      "path": "XXX\\XXX_CM850_11.1.0.12_1985-01-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5643904,
+      "modified": 1109247712.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_11.1.0.16_1985-01-04.ecfg",
+      "path": "XXX\\XXX_CM850_11.1.0.16_1985-01-04.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5840923,
+      "modified": 0.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_11.1.0.23_1985-01-06.ecfg",
+      "path": "XXX\\XXX_CM850_11.1.0.23_1985-01-06.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5715135,
+      "modified": 1290945136.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_14.1.0.11_1985-01-02.ecfg",
+      "path": "XXX\\XXX_CM850_14.1.0.11_1985-01-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 6881780,
+      "modified": 1290945146.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_14.1.0.16_1985-01-02.ecfg",
+      "path": "XXX\\XXX_CM850_14.1.0.16_1985-01-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7081779,
+      "modified": 1290945208.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_15.1.0.11_2007-01-31.ecfg",
+      "path": "XXX\\XXX_CM850_15.1.0.11_2007-01-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7317253,
+      "modified": 1284565336.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_15.1.0.7_1985-01-03.ecfg",
+      "path": "XXX\\XXX_CM850_15.1.0.7_1985-01-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5738631,
+      "modified": 1290942448.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_16.1.0.13_2008-07-16.ecfg",
+      "path": "XXX\\XXX_CM850_16.1.0.13_2008-07-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7403771,
+      "modified": 1303875054.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_16.1.0.18_2008-09-10.ecfg",
+      "path": "XXX\\XXX_CM850_16.1.0.18_2008-09-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 7436992,
+      "modified": 1290964130.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_18.1.0.6_2007-03-06.ecfg",
+      "path": "XXX\\XXX_CM850_18.1.0.6_2007-03-06.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 5632715,
+      "modified": 1210715898.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_9.0.1.20_1985-01-01.ecfg",
+      "path": "XXX\\XXX_CM850_9.0.1.20_1985-01-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 4461944,
+      "modified": 1290945618.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "XXX_CM850_9.0.1.20_1985-01-01_1.ecfg",
+      "path": "XXX\\XXX_CM850_9.0.1.20_1985-01-01_1.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 4335558,
+      "modified": 1073966680.0,
+      "extension": ".ecfg"
+    }
+  ]
+}

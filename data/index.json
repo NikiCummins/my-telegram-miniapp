@@ -1,0 +1,92 @@
+{
+  "type": "root",
+  "path": "F:\\SERVER\\- ECFG ECM -",
+  "folders_count": 17,
+  "folders": [
+    {
+      "name": "CM",
+      "path": "CM",
+      "is_dir": true
+    },
+    {
+      "name": "CM1881",
+      "path": "CM1881",
+      "is_dir": true
+    },
+    {
+      "name": "CM2100",
+      "path": "CM2100",
+      "is_dir": true
+    },
+    {
+      "name": "CM2150",
+      "path": "CM2150",
+      "is_dir": true
+    },
+    {
+      "name": "CM2180",
+      "path": "CM2180",
+      "is_dir": true
+    },
+    {
+      "name": "CM2200",
+      "path": "CM2200",
+      "is_dir": true
+    },
+    {
+      "name": "CM2220",
+      "path": "CM2220",
+      "is_dir": true
+    },
+    {
+      "name": "CM2240",
+      "path": "CM2240",
+      "is_dir": true
+    },
+    {
+      "name": "CM2250",
+      "path": "CM2250",
+      "is_dir": true
+    },
+    {
+      "name": "CM2350",
+      "path": "CM2350",
+      "is_dir": true
+    },
+    {
+      "name": "CM2380",
+      "path": "CM2380",
+      "is_dir": true
+    },
+    {
+      "name": "CM2450",
+      "path": "CM2450",
+      "is_dir": true
+    },
+    {
+      "name": "CM2880",
+      "path": "CM2880",
+      "is_dir": true
+    },
+    {
+      "name": "CM3230",
+      "path": "CM3230",
+      "is_dir": true
+    },
+    {
+      "name": "CM850",
+      "path": "CM850",
+      "is_dir": true
+    },
+    {
+      "name": "CM871",
+      "path": "CM871",
+      "is_dir": true
+    },
+    {
+      "name": "CM876",
+      "path": "CM876",
+      "is_dir": true
+    }
+  ]
+}

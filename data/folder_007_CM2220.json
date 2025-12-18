@@ -1,0 +1,502 @@
+{
+  "folder_name": "CM2220",
+  "folder_path": "F:\\SERVER\\- ECFG ECM -\\CM2220",
+  "total_items": 57,
+  "items": [
+    {
+      "name": "BBH",
+      "path": "BBH",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BBI",
+      "path": "BBI",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BBK",
+      "path": "BBK",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BBM",
+      "path": "BBM",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BDM",
+      "path": "BDM",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BDN",
+      "path": "BDN",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BBH_CM2220A_41.23.0.2_2011-09-15.ecfg",
+      "path": "BBH\\BBH_CM2220A_41.23.0.2_2011-09-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11734514,
+      "modified": 1329515184.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220A_41.23.0.3_2012-11-06.ecfg",
+      "path": "BBH\\BBH_CM2220A_41.23.0.3_2012-11-06.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11951800,
+      "modified": 1371767624.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220A_41.23.1.2_2011-09-15.ecfg",
+      "path": "BBH\\BBH_CM2220A_41.23.1.2_2011-09-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11734520,
+      "modified": 1345496218.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_13.24.0.2_2011-05-10.ecfg",
+      "path": "BBH\\BBH_CM2220_13.24.0.2_2011-05-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9941996,
+      "modified": 1308027196.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_13.24.0.4_2011-11-23.ecfg",
+      "path": "BBH\\BBH_CM2220_13.24.0.4_2011-11-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10184670,
+      "modified": 1326840970.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_13.24.0.7_2012-06-27.ecfg",
+      "path": "BBH\\BBH_CM2220_13.24.0.7_2012-06-27.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10249953,
+      "modified": 1344026010.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_43.27.0.8_2009-10-20.ecfg",
+      "path": "BBH\\BBH_CM2220_43.27.0.8_2009-10-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10217661,
+      "modified": 1290966194.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_53.27.0.0_2010-01-08.ecfg",
+      "path": "BBH\\BBH_CM2220_53.27.0.0_2010-01-08.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10181380,
+      "modified": 1290946076.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_63.27.0.0_2010-03-05.ecfg",
+      "path": "BBH\\BBH_CM2220_63.27.0.0_2010-03-05.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10181380,
+      "modified": 1290946076.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_63.27.0.0_2010-03-05_1.ecfg",
+      "path": "BBH\\BBH_CM2220_63.27.0.0_2010-03-05_1.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10475432,
+      "modified": 1290946080.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_63.27.0.3_2011-11-28.ecfg",
+      "path": "BBH\\BBH_CM2220_63.27.0.3_2011-11-28.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10427907,
+      "modified": 1328565248.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBH_CM2220_63.28.0.1_2011-04-08.ecfg",
+      "path": "BBH\\BBH_CM2220_63.28.0.1_2011-04-08.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10198018,
+      "modified": 1309469816.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_30.50.0.3_2010-12-03.ecfg",
+      "path": "BBI\\BBI_CM2220_30.50.0.3_2010-12-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11690868,
+      "modified": 1297118278.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_30.50.0.9_2011-11-15.ecfg",
+      "path": "BBI\\BBI_CM2220_30.50.0.9_2011-11-15.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11716810,
+      "modified": 1333073832.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_33.20.0.0_2009-09-18.ecfg",
+      "path": "BBI\\BBI_CM2220_33.20.0.0_2009-09-18.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10497158,
+      "modified": 1290966220.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_53.20.0.2_2010-11-12.ecfg",
+      "path": "BBI\\BBI_CM2220_53.20.0.2_2010-11-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10581015,
+      "modified": 1291935468.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_53.20.0.4_2011-05-20.ecfg",
+      "path": "BBI\\BBI_CM2220_53.20.0.4_2011-05-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10581336,
+      "modified": 1311285432.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_53.20.0.5_2011-09-27.ecfg",
+      "path": "BBI\\BBI_CM2220_53.20.0.5_2011-09-27.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10581511,
+      "modified": 1319236518.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_53.20.0.7_2012-01-17.ecfg",
+      "path": "BBI\\BBI_CM2220_53.20.0.7_2012-01-17.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10821063,
+      "modified": 1363990734.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_53.21.0.5_2009-09-14.ecfg",
+      "path": "BBI\\BBI_CM2220_53.21.0.5_2009-09-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10290533,
+      "modified": 1290946088.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_63.21.0.1_2009-09-14.ecfg",
+      "path": "BBI\\BBI_CM2220_63.21.0.1_2009-09-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9876049,
+      "modified": 1290962616.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_63.21.0.3_2010-02-01.ecfg",
+      "path": "BBI\\BBI_CM2220_63.21.0.3_2010-02-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10241208,
+      "modified": 1290946084.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBI_CM2220_63.21.0.5_2011-08-25.ecfg",
+      "path": "BBI\\BBI_CM2220_63.21.0.5_2011-08-25.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10155323,
+      "modified": 1327013150.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBK_CM2220_53.26.0.2_2009-10-19.ecfg",
+      "path": "BBK\\BBK_CM2220_53.26.0.2_2009-10-19.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10799092,
+      "modified": 1290969852.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBK_CM2220_53.26.0.5_2010-01-11.ecfg",
+      "path": "BBK\\BBK_CM2220_53.26.0.5_2010-01-11.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10879641,
+      "modified": 1290949695.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBK_CM2220_63.21.0.1_2009-09-14.ecfg",
+      "path": "BBK\\BBK_CM2220_63.21.0.1_2009-09-14.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10160051,
+      "modified": 1290969849.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBK_CM2220_63.21.0.3_2010-02-01.ecfg",
+      "path": "BBK\\BBK_CM2220_63.21.0.3_2010-02-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10241208,
+      "modified": 1290949696.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBK_CM2220_63.21.0.5_2011-08-25.ecfg",
+      "path": "BBK\\BBK_CM2220_63.21.0.5_2011-08-25.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10155326,
+      "modified": 1327013154.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBK_CM2220_63.26.0.0_2010-03-05.ecfg",
+      "path": "BBK\\BBK_CM2220_63.26.0.0_2010-03-05.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10883043,
+      "modified": 1290942504.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBK_CM2220_63.26.0.1_2010-06-02.ecfg",
+      "path": "BBK\\BBK_CM2220_63.26.0.1_2010-06-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10883043,
+      "modified": 1290949699.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBK_CM2220_63.26.0.4_2011-11-28.ecfg",
+      "path": "BBK\\BBK_CM2220_63.26.0.4_2011-11-28.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10839280,
+      "modified": 1329343784.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBM_CM2220_53.20.0.2_2010-11-12.ecfg",
+      "path": "BBM\\BBM_CM2220_53.20.0.2_2010-11-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10581015,
+      "modified": 1291935472.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBM_CM2220_53.20.0.4_2011-05-20.ecfg",
+      "path": "BBM\\BBM_CM2220_53.20.0.4_2011-05-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10581336,
+      "modified": 1309215968.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBM_CM2220_53.20.0.7_2012-01-17.ecfg",
+      "path": "BBM\\BBM_CM2220_53.20.0.7_2012-01-17.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11131988,
+      "modified": 1363990748.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBM_CM2220_53.26.0.2_2009-10-19.ecfg",
+      "path": "BBM\\BBM_CM2220_53.26.0.2_2009-10-19.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10497156,
+      "modified": 1290966278.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBM_CM2220_53.26.0.5_2010-01-11.ecfg",
+      "path": "BBM\\BBM_CM2220_53.26.0.5_2010-01-11.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10575567,
+      "modified": 1290946106.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBM_CM2220_63.26.0.1_2010-06-02.ecfg",
+      "path": "BBM\\BBM_CM2220_63.26.0.1_2010-06-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10883043,
+      "modified": 1290946110.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BBM_CM2220_63.26.0.4_2011-11-28.ecfg",
+      "path": "BBM\\BBM_CM2220_63.26.0.4_2011-11-28.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10839277,
+      "modified": 1329343790.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDM_CM2220_54.34.0.0_2011-05-02.ecfg",
+      "path": "BDM\\BDM_CM2220_54.34.0.0_2011-05-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11231225,
+      "modified": 1307000828.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDM_CM2220_54.34.0.2_2011-07-12.ecfg",
+      "path": "BDM\\BDM_CM2220_54.34.0.2_2011-07-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10929253,
+      "modified": 1311902220.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDM_CM2220_54.34.0.7_2012-07-30.ecfg",
+      "path": "BDM\\BDM_CM2220_54.34.0.7_2012-07-30.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11508293,
+      "modified": 1352168120.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_44.34.0.3_2010-11-24.ecfg",
+      "path": "BDN\\BDN_CM2220C_44.34.0.3_2010-11-24.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10812933,
+      "modified": 1292312236.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.34.0.0_2011-05-02.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.34.0.0_2011-05-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11231225,
+      "modified": 1306984206.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.34.0.16_2015-07-29.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.34.0.16_2015-07-29.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12171441,
+      "modified": 1563725184.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.34.0.2_2011-07-12.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.34.0.2_2011-07-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10929253,
+      "modified": 1311902222.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.34.0.3_2011-09-27.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.34.0.3_2011-09-27.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10929334,
+      "modified": 1318374056.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.34.0.4_2011-10-06.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.34.0.4_2011-10-06.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11127321,
+      "modified": 1320733310.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.34.0.5_2012-01-18.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.34.0.5_2012-01-18.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11128524,
+      "modified": 1365541990.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.35.0.2_2011-07-20.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.35.0.2_2011-07-20.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 10929279,
+      "modified": 1315292458.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.35.0.4_2011-11-10.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.35.0.4_2011-11-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11128550,
+      "modified": 1323295874.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BDN_CM2220C_54.35.0.5_2012-01-18.ecfg",
+      "path": "BDN\\BDN_CM2220C_54.35.0.5_2012-01-18.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11128550,
+      "modified": 1365541984.0,
+      "extension": ".ecfg"
+    }
+  ]
+}

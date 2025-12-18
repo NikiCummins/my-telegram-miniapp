@@ -1,0 +1,187 @@
+{
+  "folder_name": "CM2380",
+  "folder_path": "F:\\SERVER\\- ECFG ECM -\\CM2380",
+  "total_items": 21,
+  "items": [
+    {
+      "name": "BIX",
+      "path": "BIX",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BIY",
+      "path": "BIY",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BIZ",
+      "path": "BIZ",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BIX_CM2380A_33.50.2.14_2016-11-16.ecfg",
+      "path": "BIX\\BIX_CM2380A_33.50.2.14_2016-11-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11059076,
+      "modified": 1484039026.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIX_CM2380A_33.50.6.79_2017-09-28.ecfg",
+      "path": "BIX\\BIX_CM2380A_33.50.6.79_2017-09-28.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12307463,
+      "modified": 1507640744.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIX_CM2380A_33.50.7.19_2017-11-01.ecfg",
+      "path": "BIX\\BIX_CM2380A_33.50.7.19_2017-11-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12369441,
+      "modified": 1511365256.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIX_CM2380A_33.50.8.19_2018-05-17.ecfg",
+      "path": "BIX\\BIX_CM2380A_33.50.8.19_2018-05-17.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12410711,
+      "modified": 1530884494.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIX_CM2380A_33.50.9.25_2018-09-21.ecfg",
+      "path": "BIX\\BIX_CM2380A_33.50.9.25_2018-09-21.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12677615,
+      "modified": 1542049150.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIY_CM2380A_33.0.3.1_2016-11-18.ecfg",
+      "path": "BIY\\BIY_CM2380A_33.0.3.1_2016-11-18.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11059068,
+      "modified": 1485585946.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIY_CM2380A_33.0.6.79_2017-09-28.ecfg",
+      "path": "BIY\\BIY_CM2380A_33.0.6.79_2017-09-28.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12307457,
+      "modified": 1507215446.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIY_CM2380A_33.0.7.19_2017-11-01.ecfg",
+      "path": "BIY\\BIY_CM2380A_33.0.7.19_2017-11-01.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12369435,
+      "modified": 1511367362.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIY_CM2380A_33.0.8.19_2018-05-17.ecfg",
+      "path": "BIY\\BIY_CM2380A_33.0.8.19_2018-05-17.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12410705,
+      "modified": 1527793792.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIY_CM2380A_33.0.9.25_2018-09-21.ecfg",
+      "path": "BIY\\BIY_CM2380A_33.0.9.25_2018-09-21.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12677609,
+      "modified": 1541699982.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIY_CM2380A_33.46.46.1_2018-10-04.ecfg",
+      "path": "BIY\\BIY_CM2380A_33.46.46.1_2018-10-04.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12824759,
+      "modified": 1549045118.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIZ_CM2380A_33.20.2.17_2016-11-16.ecfg",
+      "path": "BIZ\\BIZ_CM2380A_33.20.2.17_2016-11-16.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 11557375,
+      "modified": 1486170708.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIZ_CM2380A_33.20.4.90_2017-03-03.ecfg",
+      "path": "BIZ\\BIZ_CM2380A_33.20.4.90_2017-03-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 12079308,
+      "modified": 1489409400.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIZ_CM2380A_33.20.6.79_2017-10-10.ecfg",
+      "path": "BIZ\\BIZ_CM2380A_33.20.6.79_2017-10-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13173595,
+      "modified": 1509638050.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIZ_CM2380A_33.20.7.20_2017-11-03.ecfg",
+      "path": "BIZ\\BIZ_CM2380A_33.20.7.20_2017-11-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13233288,
+      "modified": 1512480256.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIZ_CM2380A_33.20.7.21_2018-02-02.ecfg",
+      "path": "BIZ\\BIZ_CM2380A_33.20.7.21_2018-02-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13233288,
+      "modified": 1519047986.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIZ_CM2380A_33.20.8.19_2018-05-17.ecfg",
+      "path": "BIZ\\BIZ_CM2380A_33.20.8.19_2018-05-17.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13274374,
+      "modified": 1527086640.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BIZ_CM2380A_33.20.9.25_2018-09-21.ecfg",
+      "path": "BIZ\\BIZ_CM2380A_33.20.9.25_2018-09-21.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 13546318,
+      "modified": 1541705772.0,
+      "extension": ".ecfg"
+    }
+  ]
+}

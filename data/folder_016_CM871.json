@@ -1,0 +1,148 @@
+{
+  "folder_name": "CM871",
+  "folder_path": "F:\\SERVER\\- ECFG ECM -\\CM871",
+  "total_items": 16,
+  "items": [
+    {
+      "name": "BAC",
+      "path": "BAC",
+      "is_dir": true,
+      "type": "folder"
+    },
+    {
+      "name": "BAC_CM871_6.2.0.24_2006-09-07.ecfg",
+      "path": "BAC\\BAC_CM871_6.2.0.24_2006-09-07.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 8499776,
+      "modified": 1290965698.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.24_2007-08-03.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.24_2007-08-03.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 8614710,
+      "modified": 1290965702.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.32_2007-10-31.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.32_2007-10-31.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 8673475,
+      "modified": 1411352434.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.33_2008-01-10.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.33_2008-01-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 8676311,
+      "modified": 1386271180.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.43_2008-07-10.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.43_2008-07-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 8986888,
+      "modified": 1290965690.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.54_2009-02-10.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.54_2009-02-10.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9064539,
+      "modified": 1411352438.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.62_2009-07-22.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.62_2009-07-22.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9149206,
+      "modified": 1411352440.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.70_2009-02-12.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.70_2009-02-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 8676311,
+      "modified": 1316216888.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.70_2010-01-26.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.70_2010-01-26.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9174724,
+      "modified": 1290962788.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.82_2010-11-12.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.82_2010-11-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9277008,
+      "modified": 1411356044.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.91_2009-02-12.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.91_2009-02-12.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 8676311,
+      "modified": 1583558184.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.91_2011-05-23.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.91_2011-05-23.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9313857,
+      "modified": 1310817716.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.91_2011-05-23_1.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.91_2011-05-23_1.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9313705,
+      "modified": 1364445552.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.97_2013-02-06.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.97_2013-02-06.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9402550,
+      "modified": 1363082460.0,
+      "extension": ".ecfg"
+    },
+    {
+      "name": "BAC_CM871_8.0.0.99_2013-07-02.ecfg",
+      "path": "BAC\\BAC_CM871_8.0.0.99_2013-07-02.ecfg",
+      "is_dir": false,
+      "type": "file",
+      "size": 9402940,
+      "modified": 1411308464.0,
+      "extension": ".ecfg"
+    }
+  ]
+}
