@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📁 Файловый менеджер</title>
+    <title>📁 Файлы</title>
     <style>
-        /* ОЧЕНЬ ПРОСТЫЕ СТИЛИ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: Arial, sans-serif;
-            background: #f0f2f5;
+            background: #f5f5f5;
+            margin: 0;
             padding: 10px;
-            font-size: 14px;
         }
         
         .container {
             background: white;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
-        /* Шапка */
         .header {
             background: #4263eb;
             color: white;
@@ -34,68 +25,58 @@
         }
         
         .header h1 {
+            margin: 0 0 5px 0;
             font-size: 18px;
-            margin-bottom: 5px;
         }
         
         .stats {
-            font-size: 12px;
+            font-size: 13px;
             opacity: 0.9;
         }
         
-        /* Путь */
         .path {
             background: #f8f9fa;
             padding: 10px 15px;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid #eee;
             font-family: monospace;
-            word-break: break-all;
+            font-size: 13px;
         }
         
-        /* Кнопки */
-        .buttons {
-            display: flex;
-            gap: 10px;
+        .controls {
             padding: 10px 15px;
             background: white;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 10px;
         }
         
         .btn {
             padding: 8px 12px;
             border: none;
-            border-radius: 6px;
             background: #4263eb;
             color: white;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
         }
         
-        .btn:hover {
-            background: #364fc7;
-        }
-        
-        .search-input {
+        .search {
             flex: 1;
             padding: 8px 12px;
             border: 1px solid #ddd;
             border-radius: 6px;
-            font-size: 13px;
         }
         
-        /* Список файлов */
-        .file-list {
-            min-height: 300px;
-            max-height: 60vh;
-            overflow-y: auto;
+        .list {
+            min-height: 400px;
+            padding: 5px 0;
         }
         
         .item {
-            display: flex;
-            align-items: center;
             padding: 12px 15px;
             border-bottom: 1px solid #f0f0f0;
             cursor: pointer;
+            display: flex;
+            align-items: center;
         }
         
         .item:hover {
@@ -103,9 +84,9 @@
         }
         
         .icon {
-            font-size: 18px;
             width: 30px;
             text-align: center;
+            font-size: 18px;
         }
         
         .name {
@@ -121,64 +102,41 @@
             margin-left: 10px;
         }
         
-        .arrow {
-            color: #999;
-            margin-left: 10px;
-        }
-        
-        /* Загрузка */
         .loading {
             text-align: center;
             padding: 40px;
             color: #666;
-            display: none;
         }
         
-        /* Пусто */
         .empty {
             text-align: center;
             padding: 40px;
             color: #666;
             font-style: italic;
         }
-        
-        /* Ошибка */
-        .error {
-            text-align: center;
-            padding: 20px;
-            color: #e03131;
-            background: #ffe3e3;
-            margin: 10px;
-            border-radius: 6px;
-        }
     </style>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- Шапка -->
         <div class="header">
             <h1>📁 Файловый менеджер</h1>
             <div class="stats" id="stats">Загрузка...</div>
         </div>
         
-        <!-- Текущий путь -->
-        <div class="path" id="currentPath">/</div>
+        <div class="path" id="path">/</div>
         
-        <!-- Кнопки управления -->
-        <div class="buttons">
+        <div class="controls">
             <button class="btn" onclick="goHome()">🏠</button>
             <button class="btn" onclick="goBack()">←</button>
-            <input type="text" class="search-input" id="search" placeholder="Поиск..." onkeypress="if(event.key=='Enter') searchFiles()">
-            <button class="btn" onclick="searchFiles()">🔍</button>
+            <input type="text" class="search" id="search" placeholder="Поиск..." onkeypress="searchKey(event)">
+            <button class="btn" onclick="doSearch()">🔍</button>
         </div>
         
-        <!-- Загрузка -->
         <div class="loading" id="loading">Загрузка...</div>
         
-        <!-- Список файлов -->
-        <div class="file-list" id="list">
-            <!-- Здесь появятся файлы -->
+        <div class="list" id="list">
+            <!-- Файлы появятся здесь -->
         </div>
     </div>
     
