@@ -3,60 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📁 ФМ</title>
+    <title>📁 Файловый менеджер</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
-            background: #f5f5f5; 
-            font-size: 14px; 
+        /* ОЧЕНЬ ПРОСТЫЕ СТИЛИ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container { max-width: 100%; }
         
-        /* Header */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            padding: 10px;
+            font-size: 14px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Шапка */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #4263eb;
             color: white;
-            padding: 12px 15px;
+            padding: 15px;
         }
+        
         .header h1 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
+            font-size: 18px;
+            margin-bottom: 5px;
         }
+        
         .stats {
             font-size: 12px;
             opacity: 0.9;
         }
         
-        /* Path */
+        /* Путь */
         .path {
-            background: white;
-            padding: 8px 15px;
-            border-bottom: 1px solid #eee;
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-bottom: 1px solid #e9ecef;
             font-family: monospace;
-            font-size: 13px;
             word-break: break-all;
         }
         
-        /* Controls */
-        .controls {
+        /* Кнопки */
+        .buttons {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             padding: 10px 15px;
             background: white;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e9ecef;
         }
+        
         .btn {
             padding: 8px 12px;
             border: none;
             border-radius: 6px;
-            background: #667eea;
+            background: #4263eb;
             color: white;
-            font-size: 13px;
             cursor: pointer;
+            font-size: 13px;
         }
-        .search {
+        
+        .btn:hover {
+            background: #364fc7;
+        }
+        
+        .search-input {
             flex: 1;
             padding: 8px 12px;
             border: 1px solid #ddd;
@@ -64,51 +83,58 @@
             font-size: 13px;
         }
         
-        /* Loading */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 40px;
-            color: #666;
+        /* Список файлов */
+        .file-list {
+            min-height: 300px;
+            max-height: 60vh;
+            overflow-y: auto;
         }
         
-        /* File List */
-        .file-list {
-            background: white;
-            min-height: 300px;
-        }
-        .file-item {
+        .item {
             display: flex;
             align-items: center;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border-bottom: 1px solid #f0f0f0;
             cursor: pointer;
         }
-        .file-item:hover {
+        
+        .item:hover {
             background: #f8f9fa;
         }
-        .file-icon {
-            font-size: 16px;
+        
+        .icon {
+            font-size: 18px;
             width: 30px;
             text-align: center;
         }
-        .file-name {
+        
+        .name {
             flex: 1;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .file-size {
+        
+        .size {
             color: #666;
             font-size: 12px;
             margin-left: 10px;
         }
-        .dir-arrow {
+        
+        .arrow {
             color: #999;
             margin-left: 10px;
         }
         
-        /* Empty */
+        /* Загрузка */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            display: none;
+        }
+        
+        /* Пусто */
         .empty {
             text-align: center;
             padding: 40px;
@@ -116,38 +142,43 @@
             font-style: italic;
         }
         
-        /* Error */
+        /* Ошибка */
         .error {
             text-align: center;
-            padding: 40px;
-            color: #dc3545;
-            background: #f8d7da;
-            margin: 20px;
-            border-radius: 8px;
+            padding: 20px;
+            color: #e03131;
+            background: #ffe3e3;
+            margin: 10px;
+            border-radius: 6px;
         }
     </style>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="container">
+        <!-- Шапка -->
         <div class="header">
-            <h1>📁 Файлы</h1>
-            <div class="stats" id="stats">0/0</div>
+            <h1>📁 Файловый менеджер</h1>
+            <div class="stats" id="stats">Загрузка...</div>
         </div>
         
+        <!-- Текущий путь -->
         <div class="path" id="currentPath">/</div>
         
-        <div class="controls">
+        <!-- Кнопки управления -->
+        <div class="buttons">
             <button class="btn" onclick="goHome()">🏠</button>
             <button class="btn" onclick="goBack()">←</button>
-            <input type="text" class="search" id="search" placeholder="Поиск..." onkeypress="searchKey(event)">
-            <button class="btn" onclick="doSearch()">🔍</button>
+            <input type="text" class="search-input" id="search" placeholder="Поиск..." onkeypress="if(event.key=='Enter') searchFiles()">
+            <button class="btn" onclick="searchFiles()">🔍</button>
         </div>
         
+        <!-- Загрузка -->
         <div class="loading" id="loading">Загрузка...</div>
         
-        <div class="file-list" id="fileList">
-            <!-- Содержимое -->
+        <!-- Список файлов -->
+        <div class="file-list" id="list">
+            <!-- Здесь появятся файлы -->
         </div>
     </div>
     
